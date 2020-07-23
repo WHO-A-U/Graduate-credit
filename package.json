@@ -1,0 +1,24 @@
+{
+  "name": "graduate-credit",
+  "version": "1.0.0",
+  "description": "학생 로그인 정보를 통해 졸업요건 여부를 확인",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WHO-A-U/Graduate-credit.git"
+  },
+  "author": "WHO-A-U",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WHO-A-U/Graduate-credit/issues"
+  },
+  "homepage": "https://github.com/WHO-A-U/Graduate-credit#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.2.0",
+    "puppeteer": "^5.2.1"
+  }
+}
