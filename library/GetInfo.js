@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 require('dotenv').config();
 
-const getInfo = async () => {
+const GetInfo = async () => {
   const browser = await puppeteer.launch({
     headless: true,
   });
@@ -96,4 +96,4 @@ const getInfo = async () => {
     await browser.close();
   }
 };
-module.exports = getInfo;
+module.exports = GetInfo;

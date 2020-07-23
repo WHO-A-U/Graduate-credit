@@ -1,3 +1,4 @@
 .env
 node_modules
-test.js
+/test.js
+.next
