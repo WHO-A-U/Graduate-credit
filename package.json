@@ -17,8 +17,13 @@
   },
   "homepage": "https://github.com/WHO-A-U/Graduate-credit#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "puppeteer": "^5.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0"
   }
 }

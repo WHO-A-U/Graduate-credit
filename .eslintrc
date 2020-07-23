@@ -1,0 +1,25 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "rules": {
+    "max-length": 0 // 0으로 설정하면 에러 검출 X
+  },
+  "plugins": ["import"],
+  "globals": {
+    "jQuery": true,
+    "$": true
+  }
+}

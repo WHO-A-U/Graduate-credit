@@ -1,28 +1,44 @@
 const puppeteer = require('puppeteer');
-
 const cheerio = require('cheerio');
-(async () => {
+require('dotenv').config();
+
+const getInfo = async () => {
   const browser = await puppeteer.launch({
     headless: true,
   });
   const page = await browser.newPage();
-  const naver_id = 'B611092';
-  const naver_pw = 'as13241324!!';
+  const ID = process.env.ID;
+  const PW = process.env.PW;
+  console.log(ID);
+  console.log(PW);
   await page.goto(
     'http://www.hongik.ac.kr/login.do?Refer=https://cn.hongik.ac.kr/stud/'
   );
-  await page.evaluate(
-    (id, pw) => {
-      document.querySelector('input[name="USER_ID"]').value = id;
-      document.querySelector('input[name="PASSWD"').value = pw;
-    },
-    naver_id,
-    naver_pw
-  );
-
+  try {
+    await page.evaluate(
+      (id, pw) => {
+        document.querySelector('input[name="USER_ID"]').value = id;
+        document.querySelector('input[name="PASSWD"').value = pw;
+      },
+      ID,
+      PW
+    );
+  } catch (e) {
+    console.error(e);
+  }
+  let login = false;
   await page.click('.submit');
   await page.on('dialog', async (dialog) => {
     console.log(dialog.message());
+    if (
+      dialog.message() ===
+      `ID, 비밀번호를 잘못 입력했거나 등록되지 않은 ID입니다. 확인 후 다시 입력해주세요. 직원,조교는 2015. 1. 20부터 ID를 이메일 ID로 입력해주세요`
+    ) {
+      console.log('!!!');
+      login = false;
+    } else {
+      login = true;
+    }
     await dialog.dismiss();
   });
   await page.waitForNavigation();
@@ -79,4 +95,5 @@ const cheerio = require('cheerio');
     await page.close();
     await browser.close();
   }
-})();
+};
+module.exports = getInfo;
