@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/WHO-A-U/Graduate-credit#readme",
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "antd": "^4.4.3",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
