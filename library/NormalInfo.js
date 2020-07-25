@@ -1,6 +1,5 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-let all = [];
 const getHtml = async (url) => {
   try {
     return await axios.get(url);
@@ -9,6 +8,7 @@ const getHtml = async (url) => {
   }
 };
 
+let all = [];
 const NormalInfo = async () => {
   for (let i = 1; i <= 4; i++) {
     await getHtml(
@@ -32,6 +32,7 @@ const NormalInfo = async () => {
     });
     // .then((res) => log(res));
   }
-  await console.log(all);
+  // console.log(all);
+  return all;
 };
 module.exports = NormalInfo;
