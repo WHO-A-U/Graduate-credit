@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import NormalInfo from './NormalContent';
-import StudentContent from './StudentContent';
+import NormalInfo from '../contents/NormalContent';
+import StudentContent from '../contents/StudentContent';
 const { TabPane } = Tabs;
 
 function callback(key) {
