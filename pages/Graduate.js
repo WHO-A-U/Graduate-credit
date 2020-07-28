@@ -9,7 +9,10 @@ const layout = {
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
-
+const formStyle = {
+  height: '400px',
+  width: '500px',
+};
 const Graduate = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
@@ -37,11 +40,12 @@ const Graduate = () => {
   return (
     <Form
       {...layout}
-      name="basic"
+      name="studentForm"
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      labelAlign="left"
+      size="middle"
+      style={formStyle}
     >
       <Form.Item
         label="학번"

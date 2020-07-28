@@ -3,7 +3,12 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import App from './App';
 import InfoTabs from './pages/InfoTabs';
 import Graduate from './pages/Graduate';
+import GraduateInfo from './pages/GraduateInfo';
 const { Header, Content, Footer } = Layout;
+const layoutStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+};
 const AppLayout = () => {
   const [page, setPage] = useState(1);
 
@@ -15,7 +20,12 @@ const AppLayout = () => {
     if (page === 1) {
       return <InfoTabs></InfoTabs>;
     } else {
-      return <Graduate></Graduate>;
+      return (
+        // <div style={layoutStyle}>
+        //   <Graduate></Graduate>
+        // </div>
+        <GraduateInfo></GraduateInfo>
+      );
     }
   };
   return (
