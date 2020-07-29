@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import App from './App';
-import InfoTabs from './pages/InfoTabs';
-import Graduate from './pages/Graduate';
-import GraduateInfo from './pages/GraduateInfo';
+import InfoTabs from './src/pages/InfoTabs';
+import Graduate from './src/pages/Graduate';
+import GraduateInfo from './src/pages/GraduateInfo';
 const { Header, Content, Footer } = Layout;
 const layoutStyle = {
   display: 'flex',
