@@ -1,13 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import App from './App';
-import InfoTabs from './src/pages/InfoTabs';
-import Graduate from './src/pages/Graduate';
-import GraduateInfo from './src/pages/GraduateInfo';
+import App from '../../App';
+import InfoTabs from './InfoTabs';
+import Graduate from './Graduate';
+import GraduateInfo from './GraduateInfo';
 const { Header, Content, Footer } = Layout;
-const layoutStyle = {
-  display: 'flex',
-  justifyContent: 'center',
+
+const dummy = {
+  isLogined: false,
+  normalContentList: ['NormalContent공지1', '공asdfasdfadf지2', '공지3'],
+  studentContentList: ['StudentContent공지1', 'asdfasdfsdf2', 'adfadfadf공지3'],
+  computerContentList: ['computercontent1', '공asdfasdfadfds지1', '공지2'],
+  myhistory: [],
+  myGraduateInfo: [],
 };
 const AppLayout = () => {
   const [page, setPage] = useState(1);
@@ -18,10 +23,19 @@ const AppLayout = () => {
 
   const subPage = () => {
     if (page === 1) {
-      return <InfoTabs></InfoTabs>;
+      return (
+        <InfoTabs
+          studentContentList={dummy.studentContentList}
+          normalContentList={dummy.normalContentList}
+          computerContentList={dummy.computerContentList}
+        ></InfoTabs>
+      );
     } else {
       return (
-        // <div style={layoutStyle}>
+        // <div style={{
+        //   display:'flex',
+        //   justifyContent:'center',
+        // }}>
         //   <Graduate></Graduate>
         // </div>
         <GraduateInfo></GraduateInfo>

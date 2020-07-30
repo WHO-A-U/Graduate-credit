@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Button } from 'antd';
-import AppLayout from './AppLayout';
+import AppLayout from './src/pages/AppLayout';
 const App = ({ Component }) => {
   return (
     <>

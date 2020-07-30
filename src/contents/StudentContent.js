@@ -1,12 +1,14 @@
 import React from 'react';
 
-const StudentContent = () => {
+const StudentContent = ({ studentContentList }) => {
   //공지가 올 공간
-  const list = ['StudentContent공지1', '공지2', '공지3'];
-  const Lists = list.map((x, i) => <li key={i}>{x}</li>);
   return (
     <>
-      <ul>{Lists}</ul>
+      <ul>
+        {studentContentList.map((x, i) => (
+          <li key={i}>{x}</li>
+        ))}
+      </ul>
     </>
   );
 };
