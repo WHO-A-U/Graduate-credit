@@ -5,16 +5,17 @@ import InfoTabs from './InfoTabs';
 import Graduate from './Graduate';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
+import { dummy } from './dummy';
 const { Header, Content, Footer } = Layout;
 
-const dummy = {
-  isLogined: false,
-  normalContentList: ['NormalContent공지1', '공asdfasdfadf지2', '공지3'],
-  studentContentList: ['StudentContent공지1', 'asdfasdfsdf2', 'adfadfadf공지3'],
-  computerContentList: ['computercontent1', '공asdfasdfadfds지1', '공지2'],
-  myhistory: [],
-  myGraduateInfo: [],
-};
+// const dummy = {
+//   isLogined: false,
+//   normalContentList: ['NormalContent공지1', '공asdfasdfadf지2', '공지3'],
+//   studentContentList: ['StudentContent공지1', 'asdfasdfsdf2', 'adfadfadf공지3'],
+//   computerContentList: ['computercontent1', '공asdfasdfadfds지1', '공지2'],
+//   myhistory: [],
+//   myGraduateInfo: [],
+// };
 const AppLayout = () => {
   const [page, setPage] = useState(1);
 
