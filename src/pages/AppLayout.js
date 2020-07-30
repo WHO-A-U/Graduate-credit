@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import App from '../../App';
 import InfoTabs from './InfoTabs';
 import Graduate from './Graduate';
 import GraduateInfo from './GraduateInfo';
+import Navigator from './Navigator';
 const { Header, Content, Footer } = Layout;
 
 const dummy = {
@@ -17,9 +18,9 @@ const dummy = {
 const AppLayout = () => {
   const [page, setPage] = useState(1);
 
-  const onClickPage = (item) => {
+  const onClickPage = useCallback((item) => {
     setPage(parseInt(item.key, 10));
-  };
+  }, []);
 
   const subPage = () => {
     if (page === 1) {
@@ -32,20 +33,22 @@ const AppLayout = () => {
       );
     } else {
       return (
-        // <div style={{
-        //   display:'flex',
-        //   justifyContent:'center',
-        // }}>
-        //   <Graduate></Graduate>
-        // </div>
-        <GraduateInfo></GraduateInfo>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Graduate></Graduate>
+        </div>
+        // <GraduateInfo></GraduateInfo>
       );
     }
   };
   return (
     <>
       <Layout className="layout">
-        <Header>
+        {/* <Header>
           <div className="logo" />
           <Menu
             theme="dark"
@@ -60,7 +63,8 @@ const AppLayout = () => {
               졸업학점 계산기
             </Menu.Item>
           </Menu>
-        </Header>
+        </Header> */}
+        <Navigator onClick={onClickPage}></Navigator>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
