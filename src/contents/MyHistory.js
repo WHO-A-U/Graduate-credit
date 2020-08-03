@@ -23,14 +23,14 @@ import { Table, Tag, Space, Row, Col } from 'antd';
 const columns = [
   {
     title: '학수번호',
-    dataIndex: 'subjectId',
-    key: 'subjectId',
+    dataIndex: 'number',
+    key: 'number',
     render: (text) => <a>{text}</a>,
   },
   {
     title: '과목명(국)',
-    dataIndex: 'subjectName',
-    key: 'subjectName',
+    dataIndex: 'subject',
+    key: 'subject',
   },
   {
     title: '이수구분',
@@ -52,40 +52,46 @@ const columns = [
   //     key: 'action',
   //     render: (text, record) => (
   //       <Space size="middle">
-  //         <a>Invite {record.subjectId}</a>
+  //         <a>Invite {record.number}</a>
   //         <a>Delete</a>
   //       </Space>
   //     ),
   //   },
 ];
 
-const data = [
-  {
-    key: '1',
-    subjectId: '101512',
-    subjectName: '프로그래밍언어론',
-    section: '전필',
-    degree: '3',
-    grade: 'A+',
-  },
-  {
-    key: '2',
-    subjectId: '101609',
-    subjectName: '컴퓨터네트워크',
-    section: '전선',
-    degree: '3',
-    grade: 'A0',
-  },
-  {
-    key: '3',
-    subjectId: '101510',
-    subjectName: '컴퓨터구조',
-    section: '전선',
-    degree: '3',
-    grade: 'A+',
-  },
-];
-const MyHistory = () => {
+//   [
+//   {
+//     key: '1',
+//     number: '101512',
+//     subject: '프로그래밍언어론',
+//     section: '전필',
+//     degree: '3',
+//     grade: 'A+',
+//   },
+//   {
+//     key: '2',
+//     number: '101609',
+//     subject: '컴퓨터네트워크',
+//     section: '전선',
+//     degree: '3',
+//     grade: 'A0',
+//   },
+//   {
+//     key: '3',
+//     number: '101510',
+//     subject: '컴퓨터구조',
+//     section: '전선',
+//     degree: '3',
+//     grade: 'A+',
+//   },
+// ];
+const MyHistory = ({ history }) => {
+  const data = history.map((x, i) => {
+    return {
+      key: i,
+      ...x,
+    };
+  });
   return (
     <>
       <Table columns={columns} dataSource={data} />

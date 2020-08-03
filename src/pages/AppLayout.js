@@ -34,15 +34,15 @@ const AppLayout = () => {
       );
     } else {
       return (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Graduate></Graduate>
-        </div>
-        // <GraduateInfo></GraduateInfo>
+        // <div
+        //   style={{
+        //     display: 'flex',
+        //     justifyContent: 'center',
+        //   }}
+        // >
+        //   <Graduate ></Graduate>
+        // </div>
+        <GraduateInfo history={dummy.myhistory}></GraduateInfo>
       );
     }
   };
