@@ -8,21 +8,16 @@ import Navigator from './Navigator';
 import { dummy } from './dummy';
 const { Header, Content, Footer } = Layout;
 
-// const dummy = {
-//   isLogined: false,
-//   normalContentList: ['NormalContent공지1', '공asdfasdfadf지2', '공지3'],
-//   studentContentList: ['StudentContent공지1', 'asdfasdfsdf2', 'adfadfadf공지3'],
-//   computerContentList: ['computercontent1', '공asdfasdfadfds지1', '공지2'],
-//   myhistory: [],
-//   myGraduateInfo: [],
-// };
 const AppLayout = () => {
   const [page, setPage] = useState(1);
-
+  const [isLogined, setIsLogined] = useState(false);
   const onClickPage = useCallback((item) => {
     setPage(parseInt(item.key, 10));
   }, []);
 
+  const UserLogin = useCallback(() => {
+    setIsLogined(true);
+  }, []);
   const subPage = () => {
     if (page === 1) {
       return (
@@ -33,16 +28,17 @@ const AppLayout = () => {
         ></InfoTabs>
       );
     } else {
-      return (
-        // <div
-        //   style={{
-        //     display: 'flex',
-        //     justifyContent: 'center',
-        //   }}
-        // >
-        //   <Graduate ></Graduate>
-        // </div>
+      return isLogined ? (
         <GraduateInfo history={dummy.myhistory}></GraduateInfo>
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Graduate UserLogin={UserLogin}></Graduate>
+        </div>
       );
     }
   };
@@ -79,4 +75,5 @@ const AppLayout = () => {
     </>
   );
 };
+
 export default AppLayout;

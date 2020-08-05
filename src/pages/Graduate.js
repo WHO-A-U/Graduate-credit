@@ -3,27 +3,28 @@ import InfoTabs from './InfoTabs';
 import { Form, Input, Button, Checkbox, Select } from 'antd';
 import { useInput } from '../contents/useInput';
 const { Option } = Select;
+
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
+
 const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
+
 const formStyle = {
   height: '400px',
   width: '500px',
 };
-const Graduate = () => {
+
+const Graduate = ({ UserLogin }) => {
   const [id, onChangeId] = useInput('');
   const [pw, onChangePw] = useInput('');
 
-  useEffect(() => {
-    console.log(id, pw);
-  }, [id, pw]);
-
   const onFinish = (values) => {
     console.log('Success:', values);
+    UserLogin();
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -93,4 +94,5 @@ const Graduate = () => {
     </Form>
   );
 };
+
 export default Graduate;

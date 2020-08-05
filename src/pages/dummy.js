@@ -1,5 +1,6 @@
 export const dummy = {
   isLogined: false,
+  isLoading: false,
   normalContentList: [
     {
       title: '2020학년도 제2학기 휴학·복학 및 휴학연장 신청 안내',
