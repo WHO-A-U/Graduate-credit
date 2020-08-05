@@ -1,8 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import NormalContent from '../contents/NormalContent';
-import StudentContent from '../contents/StudentContent';
-import ComputerContent from '../contents/ComputerContent';
+import InfoContent from '../contents/InfoContent';
 const { TabPane } = Tabs;
 
 function callback(key) {
@@ -18,17 +16,13 @@ const InfoTabs = ({
     <>
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="일반 공지" key="1">
-          <NormalContent normalContentList={normalContentList}></NormalContent>
+          <InfoContent Contentlist={normalContentList}></InfoContent>
         </TabPane>
         <TabPane tab="학생 공지" key="2">
-          <StudentContent
-            studentContentList={studentContentList}
-          ></StudentContent>
+          <InfoContent Contentlist={studentContentList}></InfoContent>
         </TabPane>
         <TabPane tab="컴퓨터공학과 공지" key="3">
-          <ComputerContent
-            computerContentList={computerContentList}
-          ></ComputerContent>
+          <InfoContent Contentlist={computerContentList}></InfoContent>
         </TabPane>
       </Tabs>
     </>

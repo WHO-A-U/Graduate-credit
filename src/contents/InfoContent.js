@@ -1,11 +1,9 @@
 import React from 'react';
-
-const NormalContent = ({ normalContentList }) => {
-  //공지가 올 공간
+const InfoContent = ({ Contentlist }) => {
   return (
     <>
       <ul>
-        {normalContentList.map((x, i) => (
+        {Contentlist.map((x, i) => (
           <li key={i}>
             <div>
               <p>title: {x.title}</p>
@@ -23,4 +21,4 @@ const NormalContent = ({ normalContentList }) => {
   );
 };
 
-export default NormalContent;
+export default InfoContent;
