@@ -82,7 +82,28 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
       dragonBall16[x.section].push(x.subject);
     }
   });
+
   retval[`dragonBall16`] = dragonBall16;
+  const dragonBall16List = Object.keys(dragonBall16);
+
+  const e = dragonBall16List.map((x) => {
+    if (dragonBall16[x].length > 1) return true;
+    return false;
+  });
+
+  let i = 0;
+
+  e.map((x) => {
+    if (x === true) i += 1;
+  });
+
+  if (
+    i >= 6 &&
+    dragonBall16['일교4'].length() > 1 &&
+    dragonBall16['일교5'].length() > 1
+  )
+    retval['dragonBall16Warning'] = false;
+  else retval['dragonBall16Warning'] = true;
   return retval;
 };
 
