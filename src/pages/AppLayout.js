@@ -10,7 +10,7 @@ const { Header, Content, Footer } = Layout;
 
 const AppLayout = () => {
   const [page, setPage] = useState(1);
-  const [isLogined, setIsLogined] = useState(false);
+  const [isLogined, setIsLogined] = useState(true);
   const onClickPage = useCallback((item) => {
     setPage(parseInt(item.key, 10));
   }, []);
