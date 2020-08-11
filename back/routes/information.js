@@ -1,15 +1,11 @@
 const express = require('express');
 const db = require('../models');
 const router = express.Router();
-const { initTable } = require('./initInfo.test');
-router.get('/', initTable, async (req, res, next) => {
-  return res.json('sucess');
-});
 router.get('/:section', async (req, res, next) => {
   try {
     const NewInfo = await db.Information.findAll({
       where: { section: parseInt(req.params.section) },
-      attributes: ['title', 'description', 'url', 'date', 'section'],
+      attributes: ['title', 'url', 'date', 'section'],
     });
     return res.json(NewInfo);
   } catch (e) {
@@ -17,5 +13,8 @@ router.get('/:section', async (req, res, next) => {
     return next(e);
   }
 });
+// router.get('/', initTable, async (req, res, next) => {
+//   return res.json('sucess');
+// });
 
 module.exports = router;

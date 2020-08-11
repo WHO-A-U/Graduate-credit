@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const db = require('./models');
 
 const informationRouter = require('./routes/information');
+const initTestRouter = require('./routes/initTest');
 dotenv.config(); //dotenv 파일 분석기
 const app = express();
 db.sequelize.sync(); //db와 연결된 sequelize 테이블 구조동기화
@@ -45,6 +46,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/information', informationRouter);
+app.use('/api/initTest', initTestRouter);
 app.use((req, res, next) => {
   const err = new Error('404 Not Found');
   err.status = 404;
