@@ -1,0 +1,44 @@
+{
+  "name": "backend-server",
+  "version": "1.0.0",
+  "description": "API-backend-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WHO-A-U/Graduate-credit.git"
+  },
+  "author": "WHO-A-U",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WHO-A-U/Graduate-credit/issues"
+  },
+  "homepage": "https://github.com/WHO-A-U/Graduate-credit#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "helmet": "^3.21.3",
+    "hpp": "^0.2.3",
+    "morgan": "^1.9.1",
+    "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.5",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "nodemon": "^2.0.2"
+  }
+}
