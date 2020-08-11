@@ -1,5 +1,3 @@
-/* jshint indent: 1 */
-
 module.exports = function (sequelize, DataTypes) {
   const Information = sequelize.define(
     'Information',
@@ -8,16 +6,16 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(100),
         allowNull: false,
       },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
       url: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+      date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+      },
       section: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },

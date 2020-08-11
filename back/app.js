@@ -6,10 +6,7 @@ const expressSession = require('express-session');
 const dotenv = require('dotenv');
 const db = require('./models');
 
-const userRouter = require('./routes/user');
-const postRouter = require('./routes/post');
-const postsRouter = require('./routes/posts');
-const categoriesRouter = require('./routes/categories');
+const informationRouter = require('./routes/information');
 dotenv.config(); //dotenv 파일 분석기
 const app = express();
 db.sequelize.sync(); //db와 연결된 sequelize 테이블 구조동기화
@@ -46,11 +43,8 @@ app.use(
 app.get('/', (req, res) => {
   res.send('success Test');
 });
-app.use('/api/user', userRouter);
-app.use('/api/post', postRouter);
-app.use('/api/posts', postsRouter);
-app.use('/api/categories', categoriesRouter);
 
+app.use('/api/information', informationRouter);
 app.use((req, res, next) => {
   const err = new Error('404 Not Found');
   err.status = 404;
