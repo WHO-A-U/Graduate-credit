@@ -1,7 +1,7 @@
 const db = require('../models');
 const axios = require('axios');
 const cheerio = require('cheerio');
-
+const moment = require('moment');
 const getHtml = async (url) => {
   try {
     return await axios.get(url);
@@ -34,7 +34,7 @@ exports.initTable = (req, res, next) => {
     // urls.forEach( (x) => {
 
     for (let k = 0; k < urls.length; k++) {
-      console.log(urls[k]);
+      // console.log(urls[k]);
       await getHtml(urls[k].url).then((html) => {
         let ulList = [];
         const $ = cheerio.load(html.data);
@@ -45,7 +45,7 @@ exports.initTable = (req, res, next) => {
           ulList[i] = {
             title: $(this).find('div.subject span').text(),
             url: 'www.hongik.ac.kr' + $(this).find('a').attr('href'),
-            date: $(this).find('td:nth-child(5)').text(),
+            date: moment($(this).find('td:nth-child(5)').text(), 'YYYY.MM.DD'),
             section: urls[k].section,
           };
         });
@@ -56,17 +56,30 @@ exports.initTable = (req, res, next) => {
       });
       // .then((res) => log(res));
     }
-    console.log(all);
-    await all.forEach((x) => {
-      db.Information.findOrCreate({
-        where: {
-          title: x.title,
-          url: x.url,
-          date: x.date,
-          section: parseInt(x.section, 10),
-        },
-      });
+    // console.log(all);
+    await all.forEach(async (x) => {
+      try {
+        const tmp = await db.Information.findOne({
+          where: { title: x.title },
+        });
+        if (tmp === null) {
+          console.log('this should be inserted!!!');
+          db.Information.findOrCreate({
+            where: {
+              title: x.title,
+              url: x.url,
+              date: x.date,
+              section: parseInt(x.section, 10),
+            },
+          });
+        } else {
+          console.log('this should be baned!!!');
+        }
+      } catch (e) {
+        console.error(e);
+      }
     });
+    console.log('finished!!!!!!');
   };
   info();
   next();

@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const dotenv = require('dotenv');
 const db = require('./models');
-
+const testRouter = require('./routes/test');
 const informationRouter = require('./routes/information');
 const initTestRouter = require('./routes/initTest');
 dotenv.config(); //dotenv 파일 분석기
@@ -44,7 +44,7 @@ app.use(
 app.get('/', (req, res) => {
   res.send('success Test');
 });
-
+app.use('/api/test', testRouter);
 app.use('/api/information', informationRouter);
 app.use('/api/initTest', initTestRouter);
 app.use((req, res, next) => {
