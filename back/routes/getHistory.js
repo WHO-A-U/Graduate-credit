@@ -87,7 +87,13 @@ const getHistory = async () => {
 };
 router.get('/', async (req, res) => {
   console.log('this is getHistory entry');
+  //아이디와 비밀번호 받는 과정
+  //잘못된 정보를 준 경우 ex) 비밀번호나 아이디가 잘못됨
+  //   try{
   const tmp = await getHistory();
+  //   }catch(e){
+  //  http 상태와 로그로 출력한다
+  //   }
   return res.json(tmp);
 });
 module.exports = router;
