@@ -75,6 +75,7 @@ const getHistory = async () => {
     // console.log(ulList);
     // console.log('now condition');
     // console.log(ulList2);
+    ulList = ulList.filter((x) => x.grade !== '');
     ulList = ulList.concat(ulList2);
     return ulList;
   } catch (error) {
