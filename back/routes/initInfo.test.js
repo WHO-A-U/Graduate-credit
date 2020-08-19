@@ -56,15 +56,24 @@ exports.initTable = (req, res, next) => {
       });
       // .then((res) => log(res));
     }
-    // console.log(all);
-    await all.forEach(async (x) => {
+    console.log(all);
+    all = all.filter((key, idx) => {
+      for (let i = idx + 1; i < all.length; i++) {
+        process.stdout.write('*');
+        if (key.title === all[i].title) return false;
+      }
+      return true;
+    });
+
+    all.forEach(async (x) => {
       try {
         const tmp = await db.Information.findOne({
           where: { title: x.title },
         });
         if (tmp === null) {
           console.log('this should be inserted!!!');
-          db.Information.findOrCreate({
+          console.log(`${x.title} 에 대하여 insert 허용!!!!!!!!!`);
+          await db.Information.findOrCreate({
             where: {
               title: x.title,
               url: x.url,
@@ -74,6 +83,7 @@ exports.initTable = (req, res, next) => {
           });
         } else {
           console.log('this should be baned!!!');
+          console.log(`${x.title} 에 대하여 중복 체크!`);
         }
       } catch (e) {
         console.error(e);
