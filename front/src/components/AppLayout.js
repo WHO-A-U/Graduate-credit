@@ -14,7 +14,6 @@ const AppLayout = () => {
   const onClickPage = useCallback((item) => {
     setPage(parseInt(item.key, 10));
   }, []);
-
   const UserLogin = useCallback(() => {
     setIsLogined(true);
   }, []);

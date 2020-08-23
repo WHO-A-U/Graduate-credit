@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import InfoTabs from './InfoTabs';
 import { Form, Input, Button, Checkbox, Select } from 'antd';
-import { useInput } from '../contents/useInput';
+import { useInput } from '../components/useInput';
 const { Option } = Select;
 
 const layout = {

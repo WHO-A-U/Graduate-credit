@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Tag, Space, Row, Col } from 'antd';
-import MyHistory from '../contents/MyHistory';
-import MyGraduateInfo from '../contents/MyGraduateInfo';
+import MyHistory from '../components/MyHistory';
+import MyGraduateInfo from '../components/MyGraduateInfo';
 const GraduateInfo = ({ history }) => {
   return (
     <>

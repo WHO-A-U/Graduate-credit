@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
-import InfoContent from '../contents/InfoContent';
+import InfoContent from '../components/InfoContent';
 const { TabPane } = Tabs;
 
 function callback(key) {
