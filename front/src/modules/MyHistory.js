@@ -1,4 +1,5 @@
-import { createAciton, handleAction } from 'react-redux';
+import { createAciton } from 'react-redux';
+import { handleActions } from 'redux-actions';
 import * as api from '../library/api';
 
 export const initialState = {
@@ -17,10 +18,10 @@ export const GET_HISTORY_FAILURE = 'GET_HISTORY_FAILURE';
 export const getHistory = () => async (dispatch) => {
   dispatch({ type: GET_HISTORY_REQUEST });
   try {
-    const res = await api.getUsers();
+    // const res = await api.getUsers();
     dispatch({
       type: GET_HISTORY_SUCCESS,
-      data: res.data,
+      // data: res.data,
     });
   } catch (e) {
     dispatch({
@@ -32,10 +33,13 @@ export const getHistory = () => async (dispatch) => {
   }
 };
 
-const MyHistory = handleAction({
-  [GET_HISTORY_REQUEST]: (state) => ({}),
-  [GET_HISTORY_SUCCESS]: (state) => ({}),
-  [GET_HISTORY_FAILURE]: (state) => ({}),
-});
+const MyHistory = handleActions(
+  {
+    [GET_HISTORY_REQUEST]: (state) => ({}),
+    [GET_HISTORY_SUCCESS]: (state) => ({}),
+    [GET_HISTORY_FAILURE]: (state) => ({}),
+  },
+  initialState
+);
 
 export default MyHistory;

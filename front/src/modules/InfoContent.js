@@ -1,4 +1,5 @@
-import { createAciton, handleAciton } from 'react-redux';
+import { createAction } from 'react-redux';
+import { handleActions } from 'redux-actions';
 import * as api from '../library/api';
 
 export const initialState = {
@@ -20,6 +21,7 @@ export const getInfo = () => async (dispatch) => {
       action: res.data,
     });
   } catch (e) {
+    console.log('failed');
     dispatch({
       type: GET_INFO_FAILURE,
       action: e,
@@ -29,20 +31,23 @@ export const getInfo = () => async (dispatch) => {
   }
 };
 
-const InfoContent = handleAciton({
-  [GET_INFO_REQUEST]: (state) => ({
-    ...state,
-    loading: true,
-  }),
-  [GET_INFO_SUCCESS]: (state, action) => ({
-    ...state,
-    info: action.data,
-    loading: false,
-  }),
-  [GET_INFO_FAILURE]: (state, action) => ({
-    ...state,
-    error: true,
-  }),
-});
+const InfoContent = handleActions(
+  {
+    [GET_INFO_REQUEST]: (state) => ({
+      ...state,
+      loading: true,
+    }),
+    [GET_INFO_SUCCESS]: (state, action) => ({
+      ...state,
+      info: action.data,
+      loading: false,
+    }),
+    [GET_INFO_FAILURE]: (state, action) => ({
+      ...state,
+      error: true,
+    }),
+  },
+  initialState
+);
 
 export default InfoContent;

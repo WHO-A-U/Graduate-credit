@@ -1,11 +1,11 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import App from '../../App';
 import InfoTabs from './InfoTabs';
 import Graduate from './Graduate';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
 import { dummy } from './dummy';
+import InfoTabsContainer from '../container/InfoTabsContainer';
 const { Header, Content, Footer } = Layout;
 
 const AppLayout = () => {
@@ -20,11 +20,12 @@ const AppLayout = () => {
   const subPage = () => {
     if (page === 1) {
       return (
-        <InfoTabs
-          studentContentList={dummy.studentContentList}
-          normalContentList={dummy.normalContentList}
-          computerContentList={dummy.computerContentList}
-        ></InfoTabs>
+        // <InfoTabs
+        //   studentContentList={dummy.studentContentList}
+        //   normalContentList={dummy.normalContentList}
+        //   computerContentList={dummy.computerContentList}
+        // ></InfoTabs>
+        <InfoTabsContainer></InfoTabsContainer>
       );
     } else {
       return isLogined ? (

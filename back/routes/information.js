@@ -1,13 +1,33 @@
 const express = require('express');
 const db = require('../models');
 const router = express.Router();
-router.get('/:section', async (req, res, next) => {
+// router.get('/:section', async (req, res, next) => {
+//   try {
+//     const NewInfo = await db.Information.findAll({
+//       where: { section: parseInt(req.params.section) },
+//       attributes: ['title', 'url', 'date', 'section'],
+//     });
+//     return res.json(NewInfo);
+//   } catch (e) {
+//     console.error(e);
+//     return next(e);
+//   }
+// });
+router.get('/', async (req, res, next) => {
   try {
-    const NewInfo = await db.Information.findAll({
-      where: { section: parseInt(req.params.section) },
-      attributes: ['title', 'url', 'date', 'section'],
+    const firstInfo = await db.Information.findAll({
+      where: { section: 1 },
+      attributes: ['title', 'url', 'date'],
     });
-    return res.json(NewInfo);
+    const secondInfo = await db.Information.findAll({
+      where: { section: 2 },
+      attributes: ['title', 'url', 'date'],
+    });
+    const thirdInfo = await db.Information.findAll({
+      where: { section: 3 },
+      attributes: ['title', 'url', 'date'],
+    });
+    return res.json({ 1: firstInfo, 2: secondInfo, 3: thirdInfo });
   } catch (e) {
     console.error(e);
     return next(e);
