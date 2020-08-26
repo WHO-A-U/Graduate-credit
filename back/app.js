@@ -8,7 +8,7 @@ const db = require('./models');
 const testRouter = require('./routes/test');
 const informationRouter = require('./routes/information');
 const initTestRouter = require('./routes/initTest');
-const getHistoryRouter = require('./routes/getHistory');
+const myHistoryRouter = require('./routes/myHistory');
 dotenv.config(); //dotenv 파일 분석기
 const app = express();
 db.sequelize.sync(); //db와 연결된 sequelize 테이블 구조동기화
@@ -45,7 +45,7 @@ app.use(
 app.get('/', (req, res) => {
   res.send('success Test');
 });
-app.use('/api/getHistory', getHistoryRouter);
+app.use('/api/myHistory', myHistoryRouter);
 app.use('/api/test', testRouter);
 app.use('/api/information', informationRouter);
 app.use('/api/initTest', initTestRouter);

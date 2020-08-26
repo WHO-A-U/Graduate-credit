@@ -1,16 +1,14 @@
-const express = require('express');
-const router = express.Router();
 require('dotenv').config();
+const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
-const cheerio = require('cheerio');
-const getHistory = async () => {
+const getHistory = async (classnet, classnetPW) => {
   const browser = await puppeteer.launch({
     headless: true,
   });
   const page = await browser.newPage();
-  const naver_id = process.env.ID;
-  const naver_pw = process.env.PW;
+  // const naver_id = process.env.ID;
+  // const naver_pw = process.env.PW;
   await page.goto(
     'http://www.hongik.ac.kr/login.do?Refer=https://cn.hongik.ac.kr/stud/'
   );
@@ -19,8 +17,8 @@ const getHistory = async () => {
       document.querySelector('input[name="USER_ID"]').value = id;
       document.querySelector('input[name="PASSWD"').value = pw;
     },
-    naver_id,
-    naver_pw
+    classnet,
+    classnetPW
   );
 
   await page.click('.submit');
@@ -30,11 +28,11 @@ const getHistory = async () => {
   });
   await page.waitForNavigation();
   await page.goto('https://cn.hongik.ac.kr/stud/');
-  await page.waitFor(100);
+  await page.waitFor(2000);
   await page.goto('https://cn.hongik.ac.kr/stud/E/04000/04000.jsp');
   await page.click('input[name="dept"]');
   await page.click('input[type="submit"]');
-  await page.waitFor(200);
+  await page.waitFor(2000);
   try {
     const html = await page.evaluate(
       'new XMLSerializer().serializeToString(document.doctype) + document.documentElement.outerHTML'
@@ -76,7 +74,11 @@ const getHistory = async () => {
     // console.log('now condition');
     // console.log(ulList2);
     ulList = ulList.filter((x) => x.grade !== '');
-    ulList = ulList.concat(ulList2);
+    // ulList = ulList.concat(ulList2);
+    ulList = {
+      subject: ulList,
+      info: ulList2,
+    };
     return ulList;
   } catch (error) {
     console.error(error);
@@ -86,15 +88,5 @@ const getHistory = async () => {
     await browser.close();
   }
 };
-router.get('/', async (req, res) => {
-  console.log('this is getHistory entry');
-  //아이디와 비밀번호 받는 과정
-  //잘못된 정보를 준 경우 ex) 비밀번호나 아이디가 잘못됨
-  //   try{
-  const tmp = await getHistory();
-  //   }catch(e){
-  //  http 상태와 로그로 출력한다
-  //   }
-  return res.json(tmp);
-});
-module.exports = router;
+
+module.exports = getHistory;

@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
   //   } catch (e) {
   //     console.error(e);
   //   }
+  console.log(req.body);
   return res.json([
     { a: 1, b: 2 },
     { c: 3, d: 4 },
