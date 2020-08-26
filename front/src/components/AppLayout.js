@@ -1,6 +1,5 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import InfoTabs from './InfoTabs';
+import React, { useState, useCallback } from 'react';
+import { Layout, Breadcrumb } from 'antd';
 import Graduate from './Graduate';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';

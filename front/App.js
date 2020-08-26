@@ -1,5 +1,4 @@
 import React from 'react';
-import { Menu, Button } from 'antd';
 import { createStore, applyMiddleware } from 'redux';
 import AppLayout from './src/components/AppLayout';
 import rootReducer from './src/modules';
@@ -12,7 +11,7 @@ const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(logger, ReduxThunk))
 );
-const App = ({ Component }) => {
+const App = () => {
   return (
     <>
       <Provider store={store}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs } from 'antd';
+import PropTypes from 'prop-types';
 import InfoContent from './InfoContent';
 const { TabPane } = Tabs;
 
@@ -29,5 +30,10 @@ const InfoTabs = ({
     </>
   );
 };
-
+InfoTabs.propTypes = {
+  normalContentList: PropTypes.array,
+  studentContentList: PropTypes.array,
+  computerContentList: PropTypes.array,
+  setCurInfofn: PropTypes.func,
+};
 export default InfoTabs;
