@@ -3,18 +3,19 @@ import { Tabs } from 'antd';
 import InfoContent from './InfoContent';
 const { TabPane } = Tabs;
 
-function callback(key) {
-  console.log(key);
-}
+// function callback(key) {
+//   console.log(key);
+// }
 
 const InfoTabs = ({
   studentContentList,
   normalContentList,
   computerContentList,
+  setCurInfofn,
 }) => {
   return (
     <>
-      <Tabs defaultActiveKey="1" onChange={callback}>
+      <Tabs defaultActiveKey="1" onChange={setCurInfofn()}>
         <TabPane tab="일반 공지" key="1">
           <InfoContent Contentlist={normalContentList}></InfoContent>
         </TabPane>

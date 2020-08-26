@@ -6,26 +6,32 @@ import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
 import { dummy } from './dummy';
 import InfoTabsContainer from '../container/InfoTabsContainer';
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 const AppLayout = () => {
-  const [page, setPage] = useState(1);
-  const [isLogined, setIsLogined] = useState(true);
+  const [curPage, setCurPage] = useState(1);
+  const [isLogined, setIsLogined] = useState(false);
+  const [curInfo, setCurInfo] = useState(1);
+
   const onClickPage = useCallback((item) => {
-    setPage(parseInt(item.key, 10));
+    setCurPage(parseInt(item.key, 10));
   }, []);
+
   const UserLogin = useCallback(() => {
     setIsLogined(true);
   }, []);
-  const subPage = () => {
-    if (page === 1) {
+
+  const setCurInfofn = useCallback(
+    () => (id) => {
+      setCurInfo(id);
+    },
+    []
+  );
+
+  const InfoPage = () => {
+    if (curPage === 1) {
       return (
-        // <InfoTabs
-        //   studentContentList={dummy.studentContentList}
-        //   normalContentList={dummy.normalContentList}
-        //   computerContentList={dummy.computerContentList}
-        // ></InfoTabs>
-        <InfoTabsContainer></InfoTabsContainer>
+        <InfoTabsContainer setCurInfofn={setCurInfofn}></InfoTabsContainer>
       );
     } else {
       return isLogined ? (
@@ -42,33 +48,21 @@ const AppLayout = () => {
       );
     }
   };
+
   return (
     <>
       <Layout className="layout">
-        {/* <Header>
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['1']}
-            onClick={onClickPage}
-          >
-            <Menu.Item key="1" title="1">
-              공지사항
-            </Menu.Item>
-            <Menu.Item key="2" title="2">
-              졸업학점 계산기
-            </Menu.Item>
-          </Menu>
-        </Header> */}
         <Navigator onClick={onClickPage}></Navigator>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              {curPage == 1 ? '공지사항' : '졸업학점 계산기'}
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              {curPage == 1 ? curInfo : '졸업학점'}
+            </Breadcrumb.Item>
           </Breadcrumb>
-          <div className="site-layout-content">{subPage()}</div>
+          <div className="site-layout-content">{InfoPage()}</div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>This is Footer</Footer>
       </Layout>
