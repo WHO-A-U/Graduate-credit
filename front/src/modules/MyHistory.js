@@ -1,6 +1,6 @@
 import { createAciton } from 'react-redux';
 import { handleActions } from 'redux-actions';
-import * as api from '../library/api';
+import * as api from '../lib/api';
 
 export const initialState = {
   islogin: false,
@@ -33,7 +33,7 @@ export const getHistory = () => async (dispatch) => {
   }
 };
 
-const MyHistory = handleActions(
+const myHistory = handleActions(
   {
     [GET_HISTORY_REQUEST]: (state) => ({}),
     [GET_HISTORY_SUCCESS]: (state) => ({}),
@@ -42,4 +42,4 @@ const MyHistory = handleActions(
   initialState
 );
 
-export default MyHistory;
+export default myHistory;

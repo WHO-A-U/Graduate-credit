@@ -1,10 +1,10 @@
 import { createAction } from 'react-redux';
 import { handleActions } from 'redux-actions';
-import * as api from '../library/api';
+import * as api from '../lib/api';
 
-export const initialState = {
-  info: {},
-  loading: false,
+const initialState = {
+  info: null,
+  loading: true,
   error: false,
 };
 
@@ -16,22 +16,22 @@ export const getInfo = () => async (dispatch) => {
   dispatch({ type: GET_INFO_REQUEST });
   try {
     const res = await api.getInfo();
+    console.log(res.data);
     dispatch({
       type: GET_INFO_SUCCESS,
-      action: res.data,
+      payload: res.data,
     });
   } catch (e) {
-    console.log('failed');
     dispatch({
       type: GET_INFO_FAILURE,
-      action: e,
+      payload: e,
       error: true,
     });
     throw e;
   }
 };
 
-const InfoContent = handleActions(
+const infoContent = handleActions(
   {
     [GET_INFO_REQUEST]: (state) => ({
       ...state,
@@ -39,10 +39,10 @@ const InfoContent = handleActions(
     }),
     [GET_INFO_SUCCESS]: (state, action) => ({
       ...state,
-      info: action.data,
+      info: { ...action.payload },
       loading: false,
     }),
-    [GET_INFO_FAILURE]: (state, action) => ({
+    [GET_INFO_FAILURE]: (state) => ({
       ...state,
       error: true,
     }),
@@ -50,4 +50,4 @@ const InfoContent = handleActions(
   initialState
 );
 
-export default InfoContent;
+export default infoContent;
