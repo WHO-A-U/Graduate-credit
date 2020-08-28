@@ -31,10 +31,7 @@ exports.initTable = (req, res, next) => {
   const info = async () => {
     let all = [];
 
-    // urls.forEach( (x) => {
-
     for (let k = 0; k < urls.length; k++) {
-      // console.log(urls[k]);
       await getHtml(urls[k].url).then((html) => {
         let ulList = [];
         const $ = cheerio.load(html.data);
@@ -50,11 +47,9 @@ exports.initTable = (req, res, next) => {
           };
         });
         all = all.concat(ulList);
-        // console.log(all);
         const data = ulList.filter((n) => n.title);
         return data;
       });
-      // .then((res) => log(res));
     }
     console.log(all);
     all = all.filter((key, idx) => {

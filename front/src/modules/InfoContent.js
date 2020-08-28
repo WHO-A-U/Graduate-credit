@@ -1,4 +1,3 @@
-import { createAction } from 'react-redux';
 import { handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 

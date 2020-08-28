@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import InfoContent from './InfoContent';
 const { TabPane } = Tabs;
 
-// function callback(key) {
-//   console.log(key);
-// }
-
 const InfoTabs = ({
   studentContentList,
   normalContentList,

@@ -1,16 +1,10 @@
 import React, { useEffect } from 'react';
-import { Tabs } from 'antd';
-import InfoContent from '../components/InfoContent';
+import PropTypes from 'prop-types';
 import InfoTabs from '../components/InfoTabs';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { getInfo } from '../modules/infoContent';
-const { TabPane } = Tabs;
 
 const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
-  // const info = useSelector((state) => state.info);
-  // const loading = useSelector((state) => state.loading);
-  // const error = useSelector((state) => state.error);
-  // const dispatch = useDispatch();
   useEffect(() => {
     getInfo();
     console.log(info);
@@ -33,8 +27,13 @@ const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
   );
 };
 
-// export default InfoTabs;
-
+InfoTabsContainer.propTypes = {
+  setCurInfofn: PropTypes.func,
+  info: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
+  getInfo: PropTypes.func,
+};
 export default connect(
   ({ infoContent }) => ({
     info: infoContent.info,
