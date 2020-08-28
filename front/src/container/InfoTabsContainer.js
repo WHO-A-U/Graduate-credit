@@ -6,7 +6,7 @@ import { getInfo } from '../modules/infoContent';
 
 const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
   useEffect(() => {
-    getInfo();
+    if (info === null) getInfo();
     console.log(info);
     console.log(loading);
     console.log(error);
