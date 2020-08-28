@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Layout, Breadcrumb } from 'antd';
-import Graduate from './Graduate';
+import GraduateForm from './GraduateForm';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
 import { dummy } from './dummy';
@@ -42,7 +42,7 @@ const AppLayout = () => {
             justifyContent: 'center',
           }}
         >
-          <Graduate UserLogin={UserLogin}></Graduate>
+          <GraduateForm UserLogin={UserLogin}></GraduateForm>
         </div>
       );
     }

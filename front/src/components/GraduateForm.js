@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
-import { useInput } from '../components/useInput';
+import { useInput } from './useInput';
 const { Option } = Select;
 
 const layout = {
@@ -17,7 +17,7 @@ const formStyle = {
   width: '500px',
 };
 
-const Graduate = ({ UserLogin }) => {
+const GraduateForm = ({}) => {
   const [id, onChangeId] = useInput('');
   const [pw, onChangePw] = useInput('');
 
@@ -41,6 +41,7 @@ const Graduate = ({ UserLogin }) => {
   //       return;
   //   }
   // };
+
   return (
     <Form
       {...layout}
@@ -94,4 +95,4 @@ const Graduate = ({ UserLogin }) => {
   );
 };
 
-export default Graduate;
+export default GraduateForm;
