@@ -4,7 +4,7 @@ import myHistory from './myHistory';
 
 const rootReducer = combineReducers({
   infoContent,
-  // myHistory,
+  myHistory,
 });
 
 export default rootReducer;
