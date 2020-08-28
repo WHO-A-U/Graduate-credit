@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Form, Input, Button, Select } from 'antd';
-import { useInput } from './useInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { useInput } from '../lib/useInput';
+import { GET_HISTORY_REQUEST } from '../modules/myHistory';
 const { Option } = Select;
 
 const layout = {
@@ -19,28 +21,23 @@ const formStyle = {
 
 const GraduateForm = ({}) => {
   const [id, onChangeId] = useInput('');
-  const [pw, onChangePw] = useInput('');
+  const [password, onChangePassword] = useInput('');
+  const dispatch = useDispatch();
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
-    UserLogin();
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-  // const onAdmissionChange = (value) => {
-  //   switch (value) {
-  //     case 'male':
-  //       form.setFieldsValue({ note: 'Hi, man!' });
-  //       return;
-  //     case 'female':
-  //       form.setFieldsValue({ note: 'Hi, lady!' });
-  //       return;
-  //     case 'other':
-  //       form.setFieldsValue({ note: 'Hi there!' });
-  //       return;
-  //   }
-  // };
+  const onSubmitForm = useCallback(
+    (e) => {
+      console.log('나 이거 눌럿따 ');
+      e.preventDefault();
+      dispatch({
+        type: GET_HISTORY_REQUEST,
+        data: {
+          classnet: id,
+          classnetPass: password,
+        },
+      });
+    },
+    [id, password]
+  );
 
   return (
     <Form
@@ -48,8 +45,7 @@ const GraduateForm = ({}) => {
       name="studentForm"
       labelAlign="left"
       initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+      onFinish={onSubmitForm}
       size="middle"
       style={formStyle}
     >
@@ -69,7 +65,7 @@ const GraduateForm = ({}) => {
           { required: true, message: '클래스넷 비밀번호를 입력해주세요' },
         ]}
       >
-        <Input.Password onChange={onChangePw} />
+        <Input.Password onChange={onChangePassword} />
       </Form.Item>
       <Form.Item
         name="입학년도"
