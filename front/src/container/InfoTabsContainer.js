@@ -4,16 +4,17 @@ import InfoTabs from '../components/InfoTabs';
 import { connect } from 'react-redux';
 import { getInfo } from '../modules/infoContent';
 
+function isEmptyObject(param) {
+  if (param === undefined) return true;
+  return Object.keys(param).length === 0 && param.constructor === Object;
+}
+
 const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
   useEffect(() => {
-    if (info.length === 0) getInfo();
-    console.log(info);
-    console.log(loading);
-    console.log(error);
-    console.log(getInfo);
+    if (isEmptyObject(info)) getInfo();
   }, [getInfo]);
 
-  return !info ? (
+  return isEmptyObject(info) ? (
     <div>로딩중....</div>
   ) : (
     <>
@@ -29,7 +30,7 @@ const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
 
 InfoTabsContainer.propTypes = {
   setCurInfofn: PropTypes.func,
-  info: PropTypes.array,
+  info: PropTypes.object,
   loading: PropTypes.bool,
   error: PropTypes.bool,
   getInfo: PropTypes.func,

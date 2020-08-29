@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 
 const initialState = {
-  info: null,
+  info: {},
   loading: true,
   error: false,
 };
@@ -15,7 +15,6 @@ export const getInfo = () => async (dispatch) => {
   dispatch({ type: GET_INFO_REQUEST });
   try {
     const res = await api.getInfo();
-    console.log(res.data);
     dispatch({
       type: GET_INFO_SUCCESS,
       payload: res.data,
