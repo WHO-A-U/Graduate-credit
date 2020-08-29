@@ -3,6 +3,7 @@ import { Form, Input, Button, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInput } from '../lib/useInput';
 import { GET_HISTORY_REQUEST } from '../modules/myHistory';
+import { getHistory } from '../lib/api';
 const { Option } = Select;
 
 const layout = {
@@ -25,16 +26,8 @@ const GraduateForm = ({}) => {
   const dispatch = useDispatch();
 
   const onSubmitForm = useCallback(
-    (e) => {
-      console.log('나 이거 눌럿따 ');
-      e.preventDefault();
-      dispatch({
-        type: GET_HISTORY_REQUEST,
-        data: {
-          classnet: id,
-          classnetPass: password,
-        },
-      });
+    (output) => {
+      getHistory(id, password);
     },
     [id, password]
   );
