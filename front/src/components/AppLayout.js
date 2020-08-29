@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { Layout, Breadcrumb } from 'antd';
 import GraduateForm from './GraduateForm';
 import GraduateInfo from './GraduateInfo';
@@ -7,17 +8,12 @@ import { dummy } from './dummy';
 import InfoTabsContainer from '../container/InfoTabsContainer';
 const { Content, Footer } = Layout;
 
-const AppLayout = () => {
+const AppLayout = ({ isLogined, history }) => {
   const [curPage, setCurPage] = useState(1);
-  const [isLogined, setIsLogined] = useState(false);
   const [curInfo, setCurInfo] = useState(1);
 
   const onClickPage = useCallback((item) => {
     setCurPage(parseInt(item.key, 10));
-  }, []);
-
-  const UserLogin = useCallback(() => {
-    setIsLogined(true);
   }, []);
 
   const setCurInfofn = useCallback(
@@ -28,23 +24,42 @@ const AppLayout = () => {
   );
 
   const InfoPage = () => {
-    if (curPage === 1) {
-      return (
-        <InfoTabsContainer setCurInfofn={setCurInfofn}></InfoTabsContainer>
-      );
-    } else {
-      return isLogined ? (
-        <GraduateInfo history={dummy.myhistory}></GraduateInfo>
-      ) : (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <GraduateForm UserLogin={UserLogin}></GraduateForm>
-        </div>
-      );
+    // if (curPage === 1) {
+    //   return (
+    //     <InfoTabsContainer setCurInfofn={setCurInfofn}></InfoTabsContainer>
+    //   );
+    // } else {
+    // return isLogined ? (
+    //   <GraduateInfo history={dummy.myhistory}></GraduateInfo>
+    // ) : (
+    //   <div
+    //     style={{
+    //       display: 'flex',
+    //       justifyContent: 'center',
+    //     }}
+    //   >
+    //     <GraduateForm UserLogin={UserLogin}></GraduateForm>
+    //   </div>
+    // );
+    // }
+    switch (curPage) {
+      case 1:
+        return (
+          <InfoTabsContainer setCurInfofn={setCurInfofn}></InfoTabsContainer>
+        );
+      case 2:
+        return isLogined ? (
+          <GraduateInfo history={dummy.myhistory}></GraduateInfo>
+        ) : (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <GraduateForm></GraduateForm>
+          </div>
+        );
     }
   };
 
@@ -68,5 +83,8 @@ const AppLayout = () => {
     </>
   );
 };
-
+AppLayout.propTypes = {
+  isLogined: PropTypes.bool,
+  history: PropTypes.object,
+};
 export default AppLayout;
