@@ -4,7 +4,7 @@ import * as api from '../lib/api';
 
 export const initialState = {
   isLoading: false,
-  isLogin: false,
+  isLogined: false,
   loginFailure: false,
   admissionYear: null,
   history: {},
@@ -23,10 +23,11 @@ export const getHistory = (id, pw) => async (dispatch) => {
 
   try {
     // const res = await api.getUsers();
-    const res = await api.getHistory();
-
+    const res = await api.getHistory(classnet, classnetPass);
+    console.log(res);
     dispatch({
       type: GET_HISTORY_SUCCESS,
+      data: res,
     });
   } catch (e) {
     dispatch({
@@ -42,9 +43,16 @@ const myHistory = handleActions(
   {
     [GET_HISTORY_REQUEST]: (state) => ({
       ...state,
+      isLoading: true,
     }),
-    [GET_HISTORY_SUCCESS]: (state) => ({}),
-    [GET_HISTORY_FAILURE]: (state) => ({}),
+    [GET_HISTORY_SUCCESS]: (state, action) => ({
+      ...state,
+      history: action.data,
+    }),
+    [GET_HISTORY_FAILURE]: (state) => ({
+      ...state,
+      loginFailure: true,
+    }),
   },
   initialState
 );
