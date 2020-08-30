@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Layout, Breadcrumb } from 'antd';
 import GraduateForm from './GraduateForm';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
-import { dummy } from './dummy';
 import InfoTabsContainer from '../container/InfoTabsContainer';
 const { Content, Footer } = Layout;
 
@@ -49,7 +49,7 @@ const AppLayout = ({ isLogined, history }) => {
         );
       case 2:
         return isLogined ? (
-          <GraduateInfo history={dummy.myhistory}></GraduateInfo>
+          <GraduateInfo history={history.subject}></GraduateInfo>
         ) : (
           <div
             style={{
@@ -87,4 +87,7 @@ AppLayout.propTypes = {
   isLogined: PropTypes.bool,
   history: PropTypes.object,
 };
-export default AppLayout;
+export default connect(({ myHistory }) => ({
+  isLogined: myHistory.isLogined,
+  history: myHistory.history,
+}))(AppLayout);
