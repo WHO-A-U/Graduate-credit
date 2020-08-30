@@ -1,4 +1,3 @@
-import { createAciton } from 'react-redux';
 import { handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 
@@ -22,12 +21,11 @@ export const getHistory = (id, pw) => async (dispatch) => {
   const classnetPass = pw;
 
   try {
-    // const res = await api.getUsers();
     const res = await api.getHistory(classnet, classnetPass);
-    console.log(res);
+
     dispatch({
       type: GET_HISTORY_SUCCESS,
-      data: res,
+      payload: res.data,
     });
   } catch (e) {
     dispatch({
@@ -47,7 +45,8 @@ const myHistory = handleActions(
     }),
     [GET_HISTORY_SUCCESS]: (state, action) => ({
       ...state,
-      history: action.data,
+      history: action.payload,
+      isLogined: true,
     }),
     [GET_HISTORY_FAILURE]: (state) => ({
       ...state,
