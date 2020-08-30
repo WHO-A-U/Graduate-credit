@@ -1,12 +1,12 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Layout, Breadcrumb } from 'antd';
-import GraduateForm from './GraduateForm';
-import GraduateInfo from './GraduateInfo';
-import Navigator from './Navigator';
-import InfoTabsContainer from '../container/InfoTabsContainer';
-const { Content, Footer } = Layout;
+import React, { useState, useCallback } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Layout, Breadcrumb } from "antd";
+import GraduateForm from "./GraduateForm";
+import GraduateInfo from "./GraduateInfo";
+import Navigator from "./Navigator";
+import InfoTabsContainer from "../container/InfoTabsContainer";
+const { Content } = Layout;
 
 const AppLayout = ({ isLogined, history }) => {
   const [curPage, setCurPage] = useState(1);
@@ -53,8 +53,8 @@ const AppLayout = ({ isLogined, history }) => {
         ) : (
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
+              display: "flex",
+              justifyContent: "center",
             }}
           >
             <GraduateForm></GraduateForm>
@@ -67,18 +67,17 @@ const AppLayout = ({ isLogined, history }) => {
     <>
       <Layout className="layout">
         <Navigator onClick={onClickPage}></Navigator>
-        <Content style={{ padding: '0 50px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
+        <Content>
+          <Breadcrumb style={{ margin: "24px 24px 24px 24px" }}>
             <Breadcrumb.Item>
-              {curPage == 1 ? '공지사항' : '졸업학점 계산기'}
+              {curPage == 1 ? "공지사항" : "졸업학점 계산기"}
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              {curPage == 1 ? curInfo : '졸업학점'}
+              {curPage == 1 ? curInfo : "졸업학점"}
             </Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-content">{InfoPage()}</div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>This is Footer</Footer>
       </Layout>
     </>
   );
