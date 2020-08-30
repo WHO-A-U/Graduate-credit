@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { Form, Input, Button, Select } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
 import { useInput } from '../lib/useInput';
-import { GET_HISTORY_REQUEST } from '../modules/myHistory';
-import { getHistory } from '../lib/api';
+import myHistory, { GET_HISTORY_REQUEST } from '../modules/myHistory';
+import { getHistory } from '../modules/myHistory';
 const { Option } = Select;
 
 const layout = {
@@ -20,17 +20,11 @@ const formStyle = {
   width: '500px',
 };
 
-const GraduateForm = ({}) => {
-  const [id, onChangeId] = useInput('');
-  const [password, onChangePassword] = useInput('');
-  const dispatch = useDispatch();
-
-  const onSubmitForm = useCallback(
-    (output) => {
-      getHistory(id, password);
-    },
-    [id, password]
-  );
+const GraduateForm = ({ isLogined, getHistory }) => {
+  const onSubmitForm = useCallback((output) => {
+    console.log(output);
+    getHistory(output.userid, output.password);
+  }, []);
 
   return (
     <Form
@@ -47,7 +41,7 @@ const GraduateForm = ({}) => {
         name="userid"
         rules={[{ required: true, message: '클래스넷 학번을 입력해주세요!' }]}
       >
-        <Input onChange={onChangeId} />
+        <Input />
       </Form.Item>
 
       <Form.Item
@@ -58,7 +52,7 @@ const GraduateForm = ({}) => {
           { required: true, message: '클래스넷 비밀번호를 입력해주세요' },
         ]}
       >
-        <Input.Password onChange={onChangePassword} />
+        <Input.Password />
       </Form.Item>
       <Form.Item
         name="입학년도"
@@ -84,4 +78,9 @@ const GraduateForm = ({}) => {
   );
 };
 
-export default GraduateForm;
+export default connect(
+  ({ myHistory }) => ({
+    isLogined: myHistory.isLogined,
+  }),
+  { getHistory }
+)(GraduateForm);
