@@ -1,13 +1,18 @@
-import React, { useState, useCallback } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Layout, Breadcrumb } from "antd";
-import GraduateForm from "./GraduateForm";
-import GraduateInfo from "./GraduateInfo";
-import Navigator from "./Navigator";
-import InfoTabsContainer from "../container/InfoTabsContainer";
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Layout, Breadcrumb } from 'antd';
+import GraduateForm from './GraduateForm';
+import GraduateInfo from './GraduateInfo';
+import Navigator from './Navigator';
+import InfoTabsContainer from '../container/InfoTabsContainer';
 const { Content } = Layout;
 
+const infoList = {
+  1: '일반 공지',
+  2: '학생 공지',
+  3: '컴퓨터공학과 공지',
+};
 const AppLayout = ({ isLogined, history }) => {
   const [curPage, setCurPage] = useState(1);
   const [curInfo, setCurInfo] = useState(1);
@@ -24,24 +29,6 @@ const AppLayout = ({ isLogined, history }) => {
   );
 
   const InfoPage = () => {
-    // if (curPage === 1) {
-    //   return (
-    //     <InfoTabsContainer setCurInfofn={setCurInfofn}></InfoTabsContainer>
-    //   );
-    // } else {
-    // return isLogined ? (
-    //   <GraduateInfo history={dummy.myhistory}></GraduateInfo>
-    // ) : (
-    //   <div
-    //     style={{
-    //       display: 'flex',
-    //       justifyContent: 'center',
-    //     }}
-    //   >
-    //     <GraduateForm UserLogin={UserLogin}></GraduateForm>
-    //   </div>
-    // );
-    // }
     switch (curPage) {
       case 1:
         return (
@@ -53,8 +40,8 @@ const AppLayout = ({ isLogined, history }) => {
         ) : (
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
+              display: 'flex',
+              justifyContent: 'center',
             }}
           >
             <GraduateForm></GraduateForm>
@@ -68,12 +55,12 @@ const AppLayout = ({ isLogined, history }) => {
       <Layout className="layout">
         <Navigator onClick={onClickPage}></Navigator>
         <Content>
-          <Breadcrumb style={{ margin: "24px 24px 24px 24px" }}>
+          <Breadcrumb style={{ margin: '24px 24px 24px 24px' }}>
             <Breadcrumb.Item>
-              {curPage == 1 ? "공지사항" : "졸업학점 계산기"}
+              {curPage == 1 ? '공지사항' : '졸업학점 계산기'}
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              {curPage == 1 ? curInfo : "졸업학점"}
+              {curPage == 1 ? infoList[curInfo] : '졸업학점'}
             </Breadcrumb.Item>
           </Breadcrumb>
           <div className="site-layout-content">{InfoPage()}</div>
