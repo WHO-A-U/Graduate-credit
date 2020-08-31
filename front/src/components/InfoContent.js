@@ -22,11 +22,6 @@ const columns = [
     key: 'title',
     render: titleRender,
   },
-  // {
-  //   title: 'Url',
-  //   dataIndex: 'url',
-  //   key: 'url',
-  // },
   {
     title: 'Date',
     dataIndex: 'date',
