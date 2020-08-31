@@ -1,5 +1,5 @@
-import { handleActions } from 'redux-actions';
-import * as api from '../lib/api';
+import { handleActions } from "redux-actions";
+import * as api from "../lib/api";
 
 export const initialState = {
   isLoading: false,
@@ -11,9 +11,9 @@ export const initialState = {
   classnetPass: null,
 };
 
-export const GET_HISTORY_REQUEST = 'GET_HISTORY_REQUEST';
-export const GET_HISTORY_SUCCESS = 'GET_HISTORY_SUCCESS';
-export const GET_HISTORY_FAILURE = 'GET_HISTORY_FAILURE';
+export const GET_HISTORY_REQUEST = "GET_HISTORY_REQUEST";
+export const GET_HISTORY_SUCCESS = "GET_HISTORY_SUCCESS";
+export const GET_HISTORY_FAILURE = "GET_HISTORY_FAILURE";
 
 export const getHistory = (id, pw) => async (dispatch) => {
   dispatch({ type: GET_HISTORY_REQUEST });
@@ -22,7 +22,7 @@ export const getHistory = (id, pw) => async (dispatch) => {
 
   try {
     const res = await api.getHistory(classnet, classnetPass);
-
+    console.log(res);
     dispatch({
       type: GET_HISTORY_SUCCESS,
       payload: res.data,
