@@ -1,5 +1,5 @@
 module.exports = function condition1618(myHistory, myGraduateInfo) {
-  console.log('Condition 16-18');
+  console.log("Condition 16-18");
   const state = {
     이수요건: {
       전문교양: {
@@ -51,44 +51,44 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
   const mySubjects = myHistory.map((x) => x.subject);
 
   const 전문교양 = parseInt(
-    myGraduateInfo.find((x) => x.subject === '기본/소양/교양 계').degree,
+    myGraduateInfo.find((x) => x.subject === "기본/소양/교양 계").degree,
     10
   );
   if (전문교양 >= 23) {
-    state['이수요건']['전문교양']['qualify'] = 0;
+    state["이수요건"]["전문교양"]["qualify"] = 0;
   } else {
-    state['이수요건']['전문교양']['qualify'] = 23 - 전문교양;
+    state["이수요건"]["전문교양"]["qualify"] = 23 - 전문교양;
   }
 
   const MSC = parseInt(
-    myGraduateInfo.find((x) => x.subject === '심화과정 MSC인정학점').degree,
+    myGraduateInfo.find((x) => x.subject === "심화과정 MSC인정학점").degree,
     10
   );
   if (MSC >= 18) {
-    state['이수요건']['전문교양']['qualify'] = 0;
+    state["이수요건"]["전문교양"]["qualify"] = 0;
   } else {
-    state['이수요건']['전문교양']['qualify'] = 18 - MSC;
+    state["이수요건"]["전문교양"]["qualify"] = 18 - MSC;
   }
   if (
-    mySubjects.includes('전공기초영어(Ⅰ)') ||
-    mySubjects.includes('전공기초영어(Ⅱ)')
+    mySubjects.includes("전공기초영어(Ⅰ)") ||
+    mySubjects.includes("전공기초영어(Ⅱ)")
   ) {
-    state['이수요건']['전공기초영어']['qualify'] = 0;
-    state['전공기초영어']['qualify'] = 0;
+    state["이수요건"]["전공기초영어"]["qualify"] = 0;
+    state["전공기초영어"]["qualify"] = 0;
   } else {
-    state['이수요건']['전공기초영어']['qualify'] = 3;
-    state['전공기초영어']['qualify'] = 3;
+    state["이수요건"]["전공기초영어"]["qualify"] = 3;
+    state["전공기초영어"]["qualify"] = 3;
   }
 
   const 전공학점 = parseInt(
-    myGraduateInfo.find((x) => x.subject === '전공').degree,
+    myGraduateInfo.find((x) => x.subject === "전공").degree,
     10
   );
 
   if (전공학점 >= 50) {
-    state['이수요건']['전공']['qualify'] = 0;
+    state["이수요건"]["전공"]["qualify"] = 0;
   } else {
-    state['이수요건']['전공']['qualify'] = 50 - 전공학점;
+    state["이수요건"]["전공"]["qualify"] = 50 - 전공학점;
   }
 
   // const 졸업인정학점 = parseInt(
@@ -98,15 +98,15 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
 
   let 졸업인정학점;
   myGraduateInfo.map((x) => {
-    if (x.subject === '졸업인정학점') {
+    if (x.subject === "졸업인정학점") {
       졸업인정학점 = x.degree;
     }
   });
 
   if (졸업인정학점 >= 132) {
-    state['이수요건']['이수학점']['qualify'] = 0;
+    state["이수요건"]["이수학점"]["qualify"] = 0;
   } else {
-    state['이수요건']['이수학점']['qualify'] = 132 - 졸업인정학점;
+    state["이수요건"]["이수학점"]["qualify"] = 132 - 졸업인정학점;
   }
 
   const dragonBall = {
@@ -121,26 +121,26 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
 
   myGraduateInfo.map((x) => {
     switch (x.subject) {
-      case '일교1':
-        dragonBall['일교1'] = x.degree > 0 ? 0 : 1;
+      case "일교1":
+        dragonBall["일교1"] = x.degree > 0 ? 0 : 1;
         break;
-      case '일교2':
-        dragonBall['일교2'] = x.degree > 0 ? 0 : 1;
+      case "일교2":
+        dragonBall["일교2"] = x.degree > 0 ? 0 : 1;
         break;
-      case '일교3':
-        dragonBall['일교3'] = x.degree > 0 ? 0 : 1;
+      case "일교3":
+        dragonBall["일교3"] = x.degree > 0 ? 0 : 1;
         break;
-      case '일교4':
-        dragonBall['일교4'] = x.degree > 0 ? 0 : 1;
+      case "일교4":
+        dragonBall["일교4"] = x.degree > 0 ? 0 : 1;
         break;
-      case '일교5':
-        dragonBall['일교5'] = x.degree > 0 ? 0 : 1;
+      case "일교5":
+        dragonBall["일교5"] = x.degree > 0 ? 0 : 1;
         break;
-      case '핵교6':
-        dragonBall['핵교6'] = x.degree > 0 ? 0 : 1;
+      case "핵교6":
+        dragonBall["핵교6"] = x.degree > 0 ? 0 : 1;
         break;
-      case '핵교7':
-        dragonBall['핵교7'] = x.degree > 0 ? 0 : 1;
+      case "핵교7":
+        dragonBall["핵교7"] = x.degree > 0 ? 0 : 1;
         break;
       default:
         break;
@@ -149,58 +149,58 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
 
   myHistory.map((x) => {
     if (
-      x.subject.indexOf('논리적사고와글쓰기') != -1 ||
-      x.subject.indexOf('공학글쓰기') != -1
+      x.subject.indexOf("논리적사고와글쓰기") != -1 ||
+      x.subject.indexOf("공학글쓰기") != -1
     ) {
-      state['전문교양']['기초교양']['글쓰기'] = 0;
+      state["전문교양"]["기초교양"]["글쓰기"] = 0;
     }
-    if (x.subject === '영어') {
-      state['전문교양']['기초교양']['영어'] = 0;
+    if (x.subject === "영어") {
+      state["전문교양"]["기초교양"]["영어"] = 0;
     }
   });
 
-  state['전문교양']['필수영역']['qualify'] =
-    dragonBall['일교4'] == 0 || dragonBall['일교5'] == 0 ? 0 : 1;
+  state["전문교양"]["필수영역"]["qualify"] =
+    dragonBall["일교4"] == 0 || dragonBall["일교5"] == 0 ? 0 : 1;
 
   if (
-    state['전문교양']['필수영역']['qualify'] &&
+    state["전문교양"]["필수영역"]["qualify"] &&
     Object.keys(dragonBall).filter((x) => dragonBall[x]).length >= 6
   ) {
-    state['전문교양']['드래곤볼']['qualify'] = 0;
+    state["전문교양"]["드래곤볼"]["qualify"] = 0;
   } else {
-    state['전문교양']['드래곤볼']['qualify'] = 1;
+    state["전문교양"]["드래곤볼"]["qualify"] = 1;
   }
 
   const scienceScore = parseInt(
-    myGraduateInfo.find((x) => x.subject === '과학').degree,
+    myGraduateInfo.find((x) => x.subject === "과학").degree,
     10
   );
   if (scienceScore >= 9) {
-    state['MSC']['과학'] = 0;
+    state["MSC"]["과학"] = 0;
   } else {
-    state['MSC']['과학'] = 9 - scienceScore;
+    state["MSC"]["과학"] = 9 - scienceScore;
   }
 
   const mathScore = parseInt(
-    myGraduateInfo.find((x) => x.subject === '수학').degree,
+    myGraduateInfo.find((x) => x.subject === "수학").degree,
     10
   );
 
   if (mathScore >= 9) {
-    state['MSC']['수학'] = 0;
+    state["MSC"]["수학"] = 0;
   } else {
-    state['MSC']['수학'] = 9 - mathScore;
+    state["MSC"]["수학"] = 9 - mathScore;
   }
 
   const science = {
-    '대학물리(1)': false,
-    '대학물리실험(1)': false,
-    '대학화학(1)': false,
-    '대학화학실험(1)': false,
-    '대학물리(2)': false,
-    '대학물리실험(2)': false,
-    '대학화학(2)': false,
-    '대학화학실험(2)': false,
+    "대학물리(1)": false,
+    "대학물리실험(1)": false,
+    "대학화학(1)": false,
+    "대학화학실험(1)": false,
+    "대학물리(2)": false,
+    "대학물리실험(2)": false,
+    "대학화학(2)": false,
+    "대학화학실험(2)": false,
   };
 
   myHistory.map((x) => {
@@ -213,16 +213,16 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
   });
 
   if (
-    science['대학물리(1)'] &&
-    science['대학물리실험(1)'] &&
-    science['대학화학(1)'] &&
-    science['대학화학실험(1)'] &&
-    ((science['대학물리(2)'] && science['대학물리실험(2)']) ||
-      (science['대학화학(2)'] && science['대학화학실험(2)']))
+    science["대학물리(1)"] &&
+    science["대학물리실험(1)"] &&
+    science["대학화학(1)"] &&
+    science["대학화학실험(1)"] &&
+    ((science["대학물리(2)"] && science["대학물리실험(2)"]) ||
+      (science["대학화학(2)"] && science["대학화학실험(2)"]))
   ) {
-    state['MSC']['과학조건'] = 0;
+    state["MSC"]["과학조건"] = 0;
   } else {
-    state['MSC']['과학조건'] = 1;
+    state["MSC"]["과학조건"] = 1;
   }
   return state;
 };
