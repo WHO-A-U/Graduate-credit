@@ -22,8 +22,8 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
     },
     전문교양: {
       기초교양: {
-        글쓰기: 0,
-        영어: 0,
+        글쓰기: 1,
+        영어: 1,
       },
       핵심교양필수영역: {
         //핵심교양 영역 6~8 에서 영역별 각 1과목 이상 이수하여야 함.
@@ -157,8 +157,8 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
 
   myHistory.map((x) => {
     if (
-      x.subject.indexOf('논리적사고와글쓰기') != -1 ||
-      x.subject.indexOf('공학글쓰기') != -1
+      x.subject.indexOf('논리적사고와글쓰기') !== -1 ||
+      x.subject.indexOf('공학글쓰기') !== -1
     ) {
       state['전문교양']['기초교양']['글쓰기'] = 0;
     }
