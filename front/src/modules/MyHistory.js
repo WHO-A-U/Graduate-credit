@@ -12,12 +12,18 @@ export const initialState = {
 export const GET_HISTORY_REQUEST = 'GET_HISTORY_REQUEST';
 export const GET_HISTORY_SUCCESS = 'GET_HISTORY_SUCCESS';
 export const GET_HISTORY_FAILURE = 'GET_HISTORY_FAILURE';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
 
 export const getHistory = (id, pw, year) => async (dispatch) => {
   dispatch({ type: GET_HISTORY_REQUEST });
   try {
     const res = await api.getHistory(id, pw);
     console.log(res);
+    if (res.data === 'fail') {
+      const err = Error('login_fail');
+      console.log(err);
+      throw err;
+    }
     dispatch({
       type: GET_HISTORY_SUCCESS,
       payload: res.data,
@@ -50,6 +56,10 @@ const myHistory = handleActions(
       ...state,
       loginFailure: true,
       isLoading: false,
+    }),
+    [LOGIN_FAIL]: (state) => ({
+      ...state,
+      loginFailure: false,
     }),
   },
   initialState
