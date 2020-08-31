@@ -22,12 +22,12 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
     },
     전문교양: {
       기초교양: {
-        글쓰기: false,
-        영어: false,
+        글쓰기: 1,
+        영어: 1,
       },
       필수영역: {
         //예술과디자인and제2외국어
-        qualify: false,
+        qualify: 1,
       },
       드래곤볼: {
         //필수영역을 만족하면서 7개 영역중 6개 클리어
@@ -110,13 +110,13 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
   }
 
   const dragonBall = {
-    // 일교1: false, //언어와 철학
-    // 일교2: false, //사회와 경제
-    // 일교3: false, //역사와 문화
-    // 일교4: false, //예술과 디자인
-    // 일교5: false, //제2외국어와 한문
-    // 핵교6: false, //법과 생활
-    // 핵교7: false, //공학의 이해
+    일교1: 1, //언어와 철학
+    일교2: 1, //사회와 경제
+    일교3: 1, //역사와 문화
+    일교4: 1, //예술과 디자인
+    일교5: 1, //제2외국어와 한문
+    핵교6: 1, //법과 생활
+    핵교7: 1, //공학의 이해
   };
 
   myGraduateInfo.map((x) => {
@@ -149,8 +149,8 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
 
   myHistory.map((x) => {
     if (
-      x.subject.indexOf('논리적사고와글쓰기') != -1 ||
-      x.subject.indexOf('공학글쓰기') != -1
+      x.subject.indexOf('논리적사고와글쓰기') !== -1 ||
+      x.subject.indexOf('공학글쓰기') !== -1
     ) {
       state['전문교양']['기초교양']['글쓰기'] = 0;
     }
