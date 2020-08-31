@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect } from "react";
-import { Form, Input, Button, Select, Spin } from "antd";
+import React, { useCallback, useEffect } from 'react';
+import { Form, Input, Button, Select, Spin } from 'antd';
+import PropTypes from 'prop-types';
 const { Option } = Select;
-import { useDispatch, connect } from "react-redux";
-import { LOGIN_FAIL } from "../modules/myHistory";
-import { getHistory } from "../modules/myHistory";
+import { useDispatch, connect } from 'react-redux';
+import { LOGIN_FAIL } from '../modules/myHistory';
+import { getHistory } from '../modules/myHistory';
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -14,14 +15,13 @@ const tailLayout = {
 };
 
 const formStyle = {
-  height: "400px",
-  width: "500px",
+  height: '400px',
+  width: '500px',
 };
 
-const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
+const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
   const dispatch = useDispatch();
   const onSubmitForm = useCallback((output) => {
-    console.log("전 아웃풋입니다!!", output);
     getHistory(output.userid, output.password, output.admissionYear);
   }, []);
 
@@ -32,7 +32,7 @@ const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
 
   useEffect(() => {
     if (loginFailure === true) {
-      alert("로그인 실패햇지롱~!!!!!");
+      alert('로그인 실패 학번과 비밀번호를 확인해주세요');
       dispatch({ type: LOGIN_FAIL });
       onReset();
     }
@@ -53,7 +53,7 @@ const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
         <Form.Item
           label="학번"
           name="userid"
-          rules={[{ required: true, message: "클래스넷 학번을 입력해주세요!" }]}
+          rules={[{ required: true, message: '클래스넷 학번을 입력해주세요!' }]}
         >
           <Input />
         </Form.Item>
@@ -63,7 +63,7 @@ const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
           label="Password"
           name="password"
           rules={[
-            { required: true, message: "클래스넷 비밀번호를 입력해주세요" },
+            { required: true, message: '클래스넷 비밀번호를 입력해주세요' },
           ]}
         >
           <Input.Password />
@@ -71,12 +71,20 @@ const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
         <Form.Item
           name="admissionYear"
           label="admissionYear"
-          rules={[{ required: true, message: "필수선택사항 입니다" }]}
+          rules={[{ required: true, message: '필수선택사항 입니다' }]}
         >
           <Select placeholder="입학년도를 선택해주세요" allowClear>
+            <Option value="2010">2010</Option>
+            <Option value="2011">2011</Option>
+            <Option value="2012">2012</Option>
+            <Option value="2013">2013</Option>
+            <Option value="2014">2014</Option>
             <Option value="2015">2015</Option>
             <Option value="2016">2016</Option>
+            <Option value="2017">2017</Option>
             <Option value="2018">2018</Option>
+            <Option value="2019">2019</Option>
+            <Option value="2020">2020</Option>
           </Select>
         </Form.Item>
         {/* <Form.Item {...tailLayout} name="remember" valuePropName="checked">
@@ -92,7 +100,11 @@ const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
     </Spin>
   );
 };
-
+GraduateForm.propTypes = {
+  isLoading: PropTypes.bool,
+  loginFailure: PropTypes.bool,
+  getHistory: PropTypes.func,
+};
 export default connect(
   ({ myHistory }) => ({
     isLogined: myHistory.isLogined,
