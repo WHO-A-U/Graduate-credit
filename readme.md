@@ -30,7 +30,7 @@
 
 #### :bug: Back
 
-`npm install ` 후 `npm run dev` 로 실행
+`npm install` 후 `npm run dev` 로 실행
 
 #### :bug: Front
 
@@ -42,11 +42,11 @@
 
 #### :bug: Server
 
-node.js
+`node.js`
 
 #### :bug:Database
 
-mysql, sequelizer
+`mysql, sequelizer`
 
 #### :bug: Front
 
