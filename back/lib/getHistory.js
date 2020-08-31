@@ -23,7 +23,6 @@ const getHistory = async (classnet, classnetPW, admissionYear) => {
 
   await page.click(".submit");
   await page.on("dialog", async (dialog) => {
-    console.log(dialog.message());
     await dialog.dismiss();
   });
   await page.waitForNavigation();
@@ -70,16 +69,11 @@ const getHistory = async (classnet, classnetPW, admissionYear) => {
       if (i > 23) return false;
     });
 
-    // console.log(ulList);
-    // console.log('now condition');
-    // console.log(ulList2);
     ulList = ulList.filter((x) => x.grade !== "");
-    // ulList = ulList.concat(ulList2);
     ulList = {
       subject: ulList,
       info: ulList2,
     };
-    console.log("ulList입니다", ulList);
     return ulList;
   } catch (error) {
     console.error(error);

@@ -1,7 +1,7 @@
-const db = require('../models');
-const axios = require('axios');
-const cheerio = require('cheerio');
-const moment = require('moment');
+const db = require("../models");
+const axios = require("axios");
+const cheerio = require("cheerio");
+const moment = require("moment");
 const getHtml = async (url) => {
   try {
     return await axios.get(url);
@@ -9,6 +9,7 @@ const getHtml = async (url) => {
     console.error(error);
   }
 };
+
 const urls = [];
 for (let i = 1; i <= 3; i++) {
   urls.push({
@@ -16,12 +17,14 @@ for (let i = 1; i <= 3; i++) {
     section: 1,
   });
 }
+
 for (let i = 1; i <= 3; i++) {
   urls.push({
     url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=3&searchField=ALL&searchValue=&searchLowItem=ALL`,
     section: 2,
   });
 }
+
 urls.push({
   url: `http://www.hongik.ac.kr/front/boardlist.do?bbsConfigFK=54&siteGubun=1&menuGubun=1`,
   section: 3,
@@ -36,13 +39,13 @@ exports.initTable = (req, res, next) => {
         let ulList = [];
         const $ = cheerio.load(html.data);
         const $bodyList = $(
-          'body > div > div > div:nth-child(3) > div > table > tbody'
-        ).children('tr');
+          "body > div > div > div:nth-child(3) > div > table > tbody"
+        ).children("tr");
         $bodyList.each(function (i, elem) {
           ulList[i] = {
-            title: $(this).find('div.subject span').text(),
-            url: 'www.hongik.ac.kr' + $(this).find('a').attr('href'),
-            date: moment($(this).find('td:nth-child(5)').text(), 'YYYY.MM.DD'),
+            title: $(this).find("div.subject span").text(),
+            url: "www.hongik.ac.kr" + $(this).find("a").attr("href"),
+            date: moment($(this).find("td:nth-child(5)").text(), "YYYY.MM.DD"),
             section: urls[k].section,
           };
         });
@@ -51,10 +54,8 @@ exports.initTable = (req, res, next) => {
         return data;
       });
     }
-    // console.log(all);
     all = all.filter((key, idx) => {
       for (let i = idx + 1; i < all.length; i++) {
-        // process.stdout.write('*');
         if (key.title === all[i].title) return false;
       }
       return true;
@@ -66,8 +67,6 @@ exports.initTable = (req, res, next) => {
           where: { title: x.title },
         });
         if (tmp === null) {
-          // console.log('this should be inserted!!!');
-          // console.log(`${x.title} 에 대하여 insert 허용!!!!!!!!!`);
           await db.Information.findOrCreate({
             where: {
               title: x.title,
@@ -76,15 +75,11 @@ exports.initTable = (req, res, next) => {
               section: parseInt(x.section, 10),
             },
           });
-        } else {
-          // console.log('this should be baned!!!');
-          // console.log(`${x.title} 에 대하여 중복 체크!`);
         }
       } catch (e) {
         console.error(e);
       }
     });
-    // console.log('finished!!!!!!');
   };
   info();
   next();

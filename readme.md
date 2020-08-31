@@ -12,7 +12,7 @@
 
 ![image](https://user-images.githubusercontent.com/22141521/91717474-8ecee180-ebcc-11ea-9eff-c24c926b91cb.png)
 
-#### :bug: 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 끝 `+` 내 과목별 성적, 최종성적도 확인가능!
+#### :bug: 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 끝 `+` 내 과목별 성적 확인가능!
 
 최종 결과 이미지 수정예정
 
