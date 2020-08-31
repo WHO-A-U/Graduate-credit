@@ -1,11 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Form, Input, Button, Select } from 'antd';
-import { useDispatch, useSelector, connect } from 'react-redux';
-import { useInput } from '../lib/useInput';
-import myHistory, { GET_HISTORY_REQUEST } from '../modules/myHistory';
-import { getHistory } from '../modules/myHistory';
 const { Option } = Select;
-
+import { useDispatch, connect } from 'react-redux';
+import { LOGIN_FAIL } from '../modules/myHistory';
+import { getHistory } from '../modules/myHistory';
+import Loading from './Loading';
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
@@ -20,14 +19,29 @@ const formStyle = {
   width: '500px',
 };
 
-const GraduateForm = ({ isLogined, getHistory }) => {
+const GraduateForm = ({ isLogined, isLoading, loginFailure, getHistory }) => {
+  const dispatch = useDispatch();
   const onSubmitForm = useCallback((output) => {
     console.log(output);
     getHistory(output.userid, output.password, output.admissionYear);
   }, []);
 
+  const [form] = Form.useForm();
+  const onReset = () => {
+    form.resetFields();
+  };
+
+  useEffect(() => {
+    if (loginFailure === true) {
+      alert('로그인 실패햇지롱~!!!!!');
+      dispatch({ type: LOGIN_FAIL });
+      onReset();
+    }
+  });
+
   return (
     <Form
+      form={form}
       {...layout}
       name="studentForm"
       labelAlign="left"
@@ -81,6 +95,8 @@ const GraduateForm = ({ isLogined, getHistory }) => {
 export default connect(
   ({ myHistory }) => ({
     isLogined: myHistory.isLogined,
+    isLoading: myHistory.isLoading,
+    loginFailure: myHistory.loginFailure,
   }),
   { getHistory }
 )(GraduateForm);
