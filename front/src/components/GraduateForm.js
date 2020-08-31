@@ -87,10 +87,6 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
             <Option value="2020">2020</Option>
           </Select>
         </Form.Item>
-        {/* <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item> */}
-
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
             Submit
