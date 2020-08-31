@@ -21,6 +21,9 @@ const GraduateInfo = ({ history }) => {
   const graduateState20 = condition20(history.subject, history.info);
   const myYear = useSelector((state) => state.myHistory.admissionYear);
   console.log("10~15학생 졸업 state!!!", graduateState10To15);
+  console.log("16~18학생 졸업 state!!!", graduateState16To18);
+  console.log("19학생 졸업 state!!!", graduateState19);
+  console.log("20학생 졸업 state!!!", graduateState20);
   console.log("난 난2010~2015학생의 입학년도다!!!!", myYear);
   console.log(typeof myYear);
   console.log("난 통짜 히스토리다!!!!", history);

@@ -66,17 +66,19 @@ const MyGraduateInfo16To18 = (graduateState) => {
   const data = [
     {
       key: "1",
-      condition: "MSC과학",
+      condition: `MSC과학, 컴공최소 MSC이수학점 총 18학점 중 과학 9학점. MSC 과학분야 중
+      대학물리(1), 대학물리실험(1), 대학화학(1), 대학화학실험(1)을 반드시 이수하여야 하고,
+      {대학물리(2), 대학물리실험(2)} 와 {대학화학(2), 대학화학실험(2)} 둘 중 택일하여 이수`,
       pass: [stateArrObj[0].MSC.과학],
     },
     {
       key: "2",
-      condition: "MSC수학",
+      condition: "MSC수학, 컴공최소 MSC이수학점 총 18학점 중 수학 9학점",
       pass: [stateArrObj[0].MSC.수학],
     },
     {
       key: "3",
-      condition: `전문교양(기초교양 : 글쓰기)`,
+      condition: `전문교양(기초교양,일반교양,핵심교양 모두 합쳐 최소 23학점)에서 컴공최소 기초교양학점 6학점 중 글쓰기`,
       pass: [stateArrObj[0].전문교양.기초교양.글쓰기],
     },
     {
@@ -86,7 +88,8 @@ const MyGraduateInfo16To18 = (graduateState) => {
     },
     {
       key: "5",
-      condition: `전문교양(필수영역)`,
+      condition: `일반교양, 핵심교양 영역(1영역∼7영역) : ‘예술과 디자인’, ‘제2외국어와 한문’영역을 반드시 포함하여 7개영역 중 6개 영역을 선택하여 각 영역별 1과목 이상 이수하여야 함.
+      단, 교양과목(교양필수 및 교양선택)의 취득학점은 최대 50학점까지 인정됨.`,
       pass: [stateArrObj[0].전문교양.필수영역.qualify],
     },
     {
