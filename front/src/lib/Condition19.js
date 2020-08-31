@@ -11,6 +11,9 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
       전공기초영어: {
         qualify: 0,
       },
+      특성화교양: {
+        qualify: 0,
+      },
       전공: {
         qualify: 0,
       },
