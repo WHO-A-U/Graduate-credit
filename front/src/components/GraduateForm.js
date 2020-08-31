@@ -23,7 +23,6 @@ const formStyle = {
 const GraduateForm = ({ isLogined, getHistory }) => {
   const onSubmitForm = useCallback((output) => {
     console.log("전 아웃풋입니다!!", output);
-    console.log(output);
     getHistory(output.userid, output.password, output.admissionYear);
   }, []);
 

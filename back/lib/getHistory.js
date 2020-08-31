@@ -2,7 +2,7 @@ require("dotenv").config();
 const cheerio = require("cheerio");
 const puppeteer = require("puppeteer");
 
-const getHistory = async (classnet, classnetPW) => {
+const getHistory = async (classnet, classnetPW, admissionYear) => {
   const browser = await puppeteer.launch({
     headless: true,
   });
@@ -79,6 +79,7 @@ const getHistory = async (classnet, classnetPW) => {
       subject: ulList,
       info: ulList2,
     };
+    console.log("ulList입니다", ulList);
     return ulList;
   } catch (error) {
     console.error(error);
