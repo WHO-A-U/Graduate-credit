@@ -90,8 +90,8 @@ module.exports = function condition20(myHistory, myGraduateInfo) {
     state['이수요건']['특성화교양']['qualify'] = 0;
     state['특성화교양']['qualify'] = 0;
   } else {
-    state['이수요건']['특성화교양']['qualify'] = 1;
-    state['특성화교양']['qualify'] = 1;
+    state['이수요건']['특성화교양']['qualify'] = -1;
+    state['특성화교양']['qualify'] = -1;
   }
 
   if (
