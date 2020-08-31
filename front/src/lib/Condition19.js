@@ -89,7 +89,6 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
   state['특성화교양']['qualify'] = -1;
   mySubjects.map((x) => {
     if (x.indexOf('디자인씽킹') !== -1 || x.indexOf('창업과 실용법률') !== -1) {
-      console.log(x);
       state['이수요건']['특성화교양']['qualify'] = 0;
       state['특성화교양']['qualify'] = 0;
     }
