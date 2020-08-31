@@ -1,5 +1,5 @@
-import { handleActions } from "redux-actions";
-import * as api from "../lib/api";
+import { handleActions } from 'redux-actions';
+import * as api from '../lib/api';
 
 export const initialState = {
   isLoading: false,
@@ -7,25 +7,21 @@ export const initialState = {
   loginFailure: false,
   admissionYear: null,
   history: {},
-  classnet: null,
-  classnetPass: null,
 };
 
-export const GET_HISTORY_REQUEST = "GET_HISTORY_REQUEST";
-export const GET_HISTORY_SUCCESS = "GET_HISTORY_SUCCESS";
-export const GET_HISTORY_FAILURE = "GET_HISTORY_FAILURE";
+export const GET_HISTORY_REQUEST = 'GET_HISTORY_REQUEST';
+export const GET_HISTORY_SUCCESS = 'GET_HISTORY_SUCCESS';
+export const GET_HISTORY_FAILURE = 'GET_HISTORY_FAILURE';
 
-export const getHistory = (id, pw) => async (dispatch) => {
+export const getHistory = (id, pw, year) => async (dispatch) => {
   dispatch({ type: GET_HISTORY_REQUEST });
-  const classnet = id;
-  const classnetPass = pw;
-
   try {
-    const res = await api.getHistory(classnet, classnetPass);
+    const res = await api.getHistory(id, pw);
     console.log(res);
     dispatch({
       type: GET_HISTORY_SUCCESS,
       payload: res.data,
+      admissionYear: year,
     });
   } catch (e) {
     dispatch({
@@ -45,12 +41,15 @@ const myHistory = handleActions(
     }),
     [GET_HISTORY_SUCCESS]: (state, action) => ({
       ...state,
-      history: action.payload,
+      isLoading: false,
       isLogined: true,
+      admissionYear: action.admissionYear,
+      history: action.payload,
     }),
     [GET_HISTORY_FAILURE]: (state) => ({
       ...state,
       loginFailure: true,
+      isLoading: false,
     }),
   },
   initialState
