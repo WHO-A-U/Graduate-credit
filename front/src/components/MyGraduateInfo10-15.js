@@ -9,8 +9,6 @@ const getArrFromObj = (graduateState) => {
   return array;
 };
 const MyGraduateInfo10To15 = (graduateState) => {
-  console.log('난2010~2015학생의 graduateState야', graduateState);
-
   const stateArrObj = getArrFromObj(graduateState);
   const columns = [
     {
@@ -27,7 +25,6 @@ const MyGraduateInfo10To15 = (graduateState) => {
         return (
           <>
             {pass.map((tag) => {
-              console.log('난 태그야!', tag);
               let color = 'geekblue';
 
               if (tag.length) color = 'volcano';
