@@ -23,7 +23,8 @@ const formStyle = {
 const GraduateForm = ({ isLogined, getHistory }) => {
   const onSubmitForm = useCallback((output) => {
     console.log("전 아웃풋입니다!!", output);
-    getHistory(output.userid, output.password, output.입학년도);
+    console.log(output);
+    getHistory(output.userid, output.password, output.admissionYear);
   }, []);
 
   return (
@@ -55,7 +56,7 @@ const GraduateForm = ({ isLogined, getHistory }) => {
         <Input.Password />
       </Form.Item>
       <Form.Item
-        name="입학년도"
+        name="admissionYear"
         label="admissionYear"
         rules={[{ required: true, message: "필수선택사항 입니다" }]}
       >

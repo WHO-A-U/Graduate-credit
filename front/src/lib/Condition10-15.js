@@ -1,4 +1,5 @@
-module.exports = function condition1func(myHistory, myGraduateInfo) {
+module.exports = function condition1015(myHistory, myGraduateInfo) {
+  console.log("Condition 10-15");
   const state = {
     이수요건: {
       전문교양: {
@@ -22,16 +23,16 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
     },
     전문교양: {
       기초교양: {
-        글쓰기: 1,
-        영어: 1,
+        글쓰기: 0,
+        영어: 0,
       },
       핵심교양필수영역: {
         //핵심교양 영역 6~8 에서 영역별 각 1과목 이상 이수하여야 함.
-        qualify: 1,
+        qualify: 0,
       },
       일반교양필수영역: {
         //일반교양 영역 1~ 5 중 4개의 영역을 선택하여 강 영역별 1과목 이상 수행.
-        qualify: 1,
+        qualify: 0,
       },
     },
     MSC: {
@@ -164,7 +165,11 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
     }
   });
 
-  if (dragonBall["핵교6"] && dragonBall["핵교7"] && dragonBall["핵교8"]) {
+  if (
+    dragonBall["핵교6"] === 0 &&
+    dragonBall["핵교7"] === 0 &&
+    dragonBall["핵교8"] === 0
+  ) {
     state["전문교양"]["핵심교양필수영역"]["qualify"] = 0;
   } else {
     state["전문교양"]["핵심교양필수영역"]["qualify"] = 1;
