@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { Table, Tag, Space, Row, Col } from "antd";
+import React, { useState } from 'react';
+import { Table, Tag, Space, Row, Col } from 'antd';
+import { useSelector } from 'react-redux';
+import myHistory from '../modules/myHistory';
 
 const getArrFromObj = (graduateState) => {
   let array = [];
@@ -8,32 +10,33 @@ const getArrFromObj = (graduateState) => {
   }
   return array;
 };
+
 const MyGraduateInfo = (graduateState) => {
   const stateArrObj = getArrFromObj(graduateState);
-
+  const myYear = useSelector((state) => state.myHistory.admissionYear);
   const columns = [
     {
-      title: "졸업 요건",
-      dataIndex: "condition",
-      key: "condition",
+      title: '졸업 요건',
+      dataIndex: 'condition',
+      key: 'condition',
     },
     {
-      title: "충족 여부",
-      dataIndex: "pass",
-      key: "pass",
+      title: '충족 여부',
+      dataIndex: 'pass',
+      key: 'pass',
       // eslint-disable-next-line react/display-name
       render: (pass) => {
         return (
           <>
             {pass.map((tag) => {
-              console.log("난 태그야!", tag);
-              let color = "geekblue";
+              console.log('난 태그야!', tag);
+              let color = 'geekblue';
               if (tag !== 0) {
-                color = "volcano";
+                color = 'volcano';
               }
               return (
                 <Tag color={color} key={tag}>
-                  {color === "volcano" ? `부족! ${tag}학점` : `충족!`}
+                  {color === 'volcano' ? `부족! ${tag}학점` : `충족!`}
                 </Tag>
               );
             })}
@@ -66,47 +69,47 @@ const MyGraduateInfo = (graduateState) => {
 
   const data = [
     {
-      key: "1",
-      condition: "MSC과학",
+      key: '1',
+      condition: 'MSC과학',
       pass: [stateArrObj[0].MSC.과학],
     },
     {
-      key: "2",
-      condition: "MSC수학",
+      key: '2',
+      condition: 'MSC수학',
       pass: [stateArrObj[0].MSC.수학],
     },
     {
-      key: "3",
+      key: '3',
       condition: `전문교양(기초교양 : 글쓰기)`,
       pass: [stateArrObj[0].전문교양.기초교양.글쓰기],
     },
     {
-      key: "4",
+      key: '4',
       condition: `전문교양(기초교양 : 영어)`,
       pass: [stateArrObj[0].전문교양.기초교양.영어],
     },
     {
-      key: "5",
+      key: '5',
       condition: `전문교양(필수영역)`,
       pass: [stateArrObj[0].전문교양.필수영역],
     },
     {
-      key: "6",
+      key: '6',
       condition: `드래곤볼`,
       pass: [stateArrObj[0].전문교양.드래곤볼.qualify],
     },
     {
-      key: "7",
+      key: '7',
       condition: `전공기초영어`,
       pass: [stateArrObj[0].전공기초영어.qualify],
     },
     {
-      key: "8",
+      key: '8',
       condition: `전공이수학점`,
       pass: [stateArrObj[0].이수요건.전공.qualify],
     },
     {
-      key: "9",
+      key: '9',
       condition: `전체이수학점`,
       pass: [stateArrObj[0].이수요건.이수학점.qualify],
     },
