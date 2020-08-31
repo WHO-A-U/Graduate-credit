@@ -1,4 +1,5 @@
-module.exports = function condition1func(myHistory, myGraduateInfo) {
+module.exports = function condition1618(myHistory, myGraduateInfo) {
+  console.log('Condition 16-18');
   const state = {
     이수요건: {
       전문교양: {
@@ -154,7 +155,7 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
       state['전문교양']['기초교양']['글쓰기'] = 0;
     }
     if (x.subject === '영어') {
-      state['전문교양']['기초교양']['영어'][] = 0;
+      state['전문교양']['기초교양']['영어'] = 0;
     }
   });
 

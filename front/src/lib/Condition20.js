@@ -1,10 +1,8 @@
-module.exports = function condition1func(myHistory, myGraduateInfo) {
+module.exports = function condition20(myHistory, myGraduateInfo) {
+  console.log('Condition 20');
   const state = {
     이수요건: {
       전문교양: {
-        qualify: 0,
-      },
-      특성화교양: {
         qualify: 0,
       },
       MSC: {
@@ -71,15 +69,15 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
   } else {
     state['이수요건']['전문교양']['qualify'] = 18 - MSC;
   }
-  const 특성화교양 = parseInt(
-    myGraduateInfo.find((x) => x.subject === '특성화교양').degree,
-    10
-  );
-  if (특성화교양 >= 3) {
-    state['이수요건']['특성화교양']['qualify'] = 0;
-  } else {
-    state['이수요건']['특성화교양']['qualify'] = 3 - 특성화교양;
-  }
+  //   const 특성화교양 = parseInt(
+  //     myGraduateInfo.find((x) => x.subject === '특성화교양').degree,
+  //     10
+  //   );
+  //   if (특성화교양 >= 3) {
+  //     state['이수요건']['특성화교양']['qualify'] = 0;
+  //   } else {
+  //     state['이수요건']['특성화교양']['qualify'] = 3 - 특성화교양;
+  //   }
 
   if (
     mySubjects.includes('디자인씽킹') ||
@@ -143,25 +141,25 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
   myGraduateInfo.map((x) => {
     switch (x.subject) {
       case '일교1':
-        dragonBall['일교1'] = x.degree > 0 ? true : false;
+        dragonBall['일교1'] = x.degree > 0 ? 0 : 1;
         break;
       case '일교2':
-        dragonBall['일교2'] = x.degree > 0 ? true : false;
+        dragonBall['일교2'] = x.degree > 0 ? 0 : 1;
         break;
       case '일교3':
-        dragonBall['일교3'] = x.degree > 0 ? true : false;
+        dragonBall['일교3'] = x.degree > 0 ? 0 : 1;
         break;
       case '일교4':
-        dragonBall['일교4'] = x.degree > 0 ? true : false;
+        dragonBall['일교4'] = x.degree > 0 ? 0 : 1;
         break;
       case '일교5':
-        dragonBall['일교5'] = x.degree > 0 ? true : false;
+        dragonBall['일교5'] = x.degree > 0 ? 0 : 1;
         break;
       case '핵교6':
-        dragonBall['핵교6'] = x.degree > 0 ? true : false;
+        dragonBall['핵교6'] = x.degree > 0 ? 0 : 1;
         break;
       case '핵교7':
-        dragonBall['핵교7'] = x.degree > 0 ? true : false;
+        dragonBall['핵교7'] = x.degree > 0 ? 0 : 1;
         break;
       default:
         break;
@@ -173,23 +171,23 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
       x.subject.indexOf('논리적사고와글쓰기') != -1 ||
       x.subject.indexOf('공학글쓰기') != -1
     ) {
-      state['전문교양']['기초교양']['글쓰기'] = true;
+      state['전문교양']['기초교양']['글쓰기'] = 0;
     }
     if (x.subject === '영어') {
-      state['전문교양']['기초교양']['영어'] = true;
+      state['전문교양']['기초교양']['영어'] = 0;
     }
   });
 
   state['전문교양']['필수영역']['qualify'] =
-    dragonBall['일교4'] || dragonBall['일교5'] ? true : false;
+    dragonBall['일교4'] === 0 || dragonBall['일교5'] === 0 ? 0 : 1;
 
   if (
     state['전문교양']['필수영역']['qualify'] &&
     Object.keys(dragonBall).filter((x) => dragonBall[x]).length >= 6
   ) {
-    state['전문교양']['드래곤볼']['qualify'] = true;
+    state['전문교양']['드래곤볼']['qualify'] = 0;
   } else {
-    state['전문교양']['드래곤볼']['qualify'] = false;
+    state['전문교양']['드래곤볼']['qualify'] = 1;
   }
 
   const scienceScore = parseInt(
@@ -203,9 +201,20 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
   );
 
   if (scienceScore + mathScore >= 18) {
-    state['MSC']['qualify'] = 0;
+    state['MSC']['수학과학']['qualify'] = 0;
   } else {
-    state['MSC']['qualify'] = 18 - mathScore;
+    state['MSC']['수학과학']['qualify'] = 18 - mathScore;
+  }
+
+  const MSCcomputer =
+    (mySubjects.includes('정보시스템개론') ? 3 : 0) +
+    (mySubjects.includes('객체지향프로그래밍') ? 3 : 0) +
+    (mySubjects.includes('C-프로그래밍') ? 3 : 0);
+
+  if (MSCcomputer >= 6) {
+    state['MSC']['전산']['qualify'] = 0;
+  } else {
+    state['MSC']['전산']['qualify'] = 6 - MSCcomputer;
   }
 
   return state;
