@@ -34,6 +34,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
         //필수영역을 만족하면서 7개 영역중 6개 클리어
         qualify: 0,
       },
+      rest: [],
     },
     특성화교양: {
       qualify: 0,
@@ -183,6 +184,12 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
 
   state['전문교양']['필수영역']['qualify'] =
     dragonBall['일교4'] === 0 || dragonBall['일교5'] === 0 ? 0 : 1;
+
+  const res = Object.keys(dragonBall).filter((x) => dragonBall[x] > 0);
+
+  res.map((x) => {
+    state['전문교양']['rest'].push(x);
+  });
 
   if (
     state['전문교양']['필수영역']['qualify'] &&
