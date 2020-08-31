@@ -9,7 +9,7 @@ function isEmptyObject(param) {
   return Object.keys(param).length === 0 && param.constructor === Object;
 }
 
-const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
+const InfoTabsContainer = ({ setCurInfofn, info, getInfo }) => {
   useEffect(() => {
     if (isEmptyObject(info)) getInfo();
   }, [getInfo]);
@@ -31,15 +31,11 @@ const InfoTabsContainer = ({ setCurInfofn, info, loading, error, getInfo }) => {
 InfoTabsContainer.propTypes = {
   setCurInfofn: PropTypes.func,
   info: PropTypes.object,
-  loading: PropTypes.bool,
-  error: PropTypes.bool,
   getInfo: PropTypes.func,
 };
 export default connect(
   ({ infoContent }) => ({
     info: infoContent.info,
-    loading: infoContent.loading,
-    error: infoContent.error,
   }),
   {
     getInfo,

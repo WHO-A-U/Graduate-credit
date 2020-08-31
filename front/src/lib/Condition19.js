@@ -11,6 +11,9 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
       전공기초영어: {
         qualify: 0,
       },
+      특성화교양: {
+        qualify: 0,
+      },
       전공: {
         qualify: 0,
       },
@@ -87,9 +90,11 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     mySubjects.includes('디자인씽킹') ||
     mySubjects.includes('창업과 실용법률')
   ) {
-    state['이수요건']['특성화교양'] = 0;
+    state['특성화교양']['qualify'] = 0;
+    state['이수요건']['특성화교양']['qualify'] = 0;
   } else {
-    state['이수요건']['특성화교양'] = 1;
+    state['특성화교양']['qualify'] = 1;
+    state['이수요건']['특성화교양']['qualify'] = 1;
   }
 
   if (
