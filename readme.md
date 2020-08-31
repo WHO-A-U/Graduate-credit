@@ -12,7 +12,7 @@
 
 ![image](https://user-images.githubusercontent.com/22141521/91717474-8ecee180-ebcc-11ea-9eff-c24c926b91cb.png)
 
-#### :bug: 학번 별 다른 복잡한 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 한번에 보여드립니다 `+` 내 과목별 성적, 최종성적도 확인해볼 수 있습니다.
+#### :bug: 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 끝 `+` 내 과목별 성적, 최종성적도 확인가능!
 
 최종 결과 이미지 수정예정
 
@@ -46,7 +46,12 @@
 
 #### :bug:Database
 
+<<<<<<< HEAD
 `mysql, sequelizer`
+=======
+`mysql`, `sequelizer`
+
+> > > > > > > 7511a9aee7227da059214dff782b9d9adbf57326
 
 #### :bug: Front
 

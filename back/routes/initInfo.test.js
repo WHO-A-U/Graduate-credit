@@ -51,10 +51,10 @@ exports.initTable = (req, res, next) => {
         return data;
       });
     }
-    console.log(all);
+    // console.log(all);
     all = all.filter((key, idx) => {
       for (let i = idx + 1; i < all.length; i++) {
-        process.stdout.write('*');
+        // process.stdout.write('*');
         if (key.title === all[i].title) return false;
       }
       return true;
@@ -66,8 +66,8 @@ exports.initTable = (req, res, next) => {
           where: { title: x.title },
         });
         if (tmp === null) {
-          console.log('this should be inserted!!!');
-          console.log(`${x.title} 에 대하여 insert 허용!!!!!!!!!`);
+          // console.log('this should be inserted!!!');
+          // console.log(`${x.title} 에 대하여 insert 허용!!!!!!!!!`);
           await db.Information.findOrCreate({
             where: {
               title: x.title,
@@ -77,14 +77,14 @@ exports.initTable = (req, res, next) => {
             },
           });
         } else {
-          console.log('this should be baned!!!');
-          console.log(`${x.title} 에 대하여 중복 체크!`);
+          // console.log('this should be baned!!!');
+          // console.log(`${x.title} 에 대하여 중복 체크!`);
         }
       } catch (e) {
         console.error(e);
       }
     });
-    console.log('finished!!!!!!');
+    // console.log('finished!!!!!!');
   };
   info();
   next();
