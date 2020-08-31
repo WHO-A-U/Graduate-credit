@@ -36,11 +36,9 @@ const MyGraduateInfo10To15 = (graduateState) => {
               return (
                 <Tag color={color} key={tag}>
                   {color === 'volcano'
-                    ? tag !== -1
-                      ? typeof tag === 'number'
-                        ? `부족! ${tag}학점`
-                        : `부족! ${tag}`
-                      : `부족!`
+                    ? typeof tag === 'number'
+                      ? `부족! ${tag}학점`
+                      : `부족! ${tag}`
                     : `충족!`}
                 </Tag>
               );
