@@ -27,12 +27,17 @@ const MyGraduateInfo16To18 = (graduateState) => {
             {pass.map((tag) => {
               console.log("난 태그야!", tag);
               let color = "geekblue";
-              if (tag !== 0) {
-                color = "volcano";
-              }
+
+              if (tag.length) color = "volcano";
+              if (tag !== 0) color = "volcano";
+
               return (
                 <Tag color={color} key={tag}>
-                  {color === "volcano" ? `부족! ${tag}학점` : `충족!`}
+                  {color === "volcano"
+                    ? typeof tag === "number"
+                      ? `부족! ${tag}학점`
+                      : `부족! ${tag}`
+                    : `충족!`}
                 </Tag>
               );
             })}
@@ -96,10 +101,7 @@ const MyGraduateInfo16To18 = (graduateState) => {
       key: "6",
       condition: `드래곤볼, 일반교양, 핵심교양 영역(1영역∼7영역) + 필수영역 포함하여 7개영역 중 6개 영역을 선택하여 각 영역별 1과목 이상 이수하여야 함.
       단, 교양과목(교양필수 및 교양선택)의 취득학점은 최대 50학점까지 인정됨.`,
-      pass: [
-        stateArrObj[0].전문교양.드래곤볼.qualify,
-        stateArrObj[0].전문교양.rest,
-      ],
+      pass: [stateArrObj[0].전문교양.rest],
     },
     {
       key: "7",

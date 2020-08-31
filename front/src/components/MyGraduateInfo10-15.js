@@ -29,12 +29,17 @@ const MyGraduateInfo10To15 = (graduateState) => {
             {pass.map((tag) => {
               console.log("난 태그야!", tag);
               let color = "geekblue";
-              if (tag !== 0) {
-                color = "volcano";
-              }
+
+              if (tag.length) color = "volcano";
+              if (tag !== 0) color = "volcano";
+
               return (
                 <Tag color={color} key={tag}>
-                  {color === "volcano" ? `부족! ${tag}` : `충족!`}
+                  {color === "volcano"
+                    ? typeof tag === "number"
+                      ? `부족! ${tag}학점`
+                      : `부족! ${tag}`
+                    : `충족!`}
                 </Tag>
               );
             })}
