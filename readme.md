@@ -12,6 +12,7 @@
 
 
 
+
 ####  :bug: 졸업요건을 보려면.. ````오우쉣
 
 1. 클래스넷에 로그인한다.
@@ -25,6 +26,7 @@
    ![image](https://user-images.githubusercontent.com/22141521/91716735-2b907f80-ebcb-11ea-90b3-50d3e63cef19.png)
 
    
+
 
 #### :bug: 공지사항을 보려면..
 
@@ -40,7 +42,9 @@
 
 
 
+
 ## :bomb::bomb::bomb::bomb::bomb:이젠 그만!!!!!!!!!!!!!!!:bomb::bomb::bomb::bomb::bomb:
+
 
 
 
@@ -50,9 +54,11 @@
 
 
 
+
 #### :bug: ​학번 별 다른 복잡한 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 한번에 보여드립니다 `+` 내 과목별 성적, 최종성적도 확인해볼 수 있습니다.
 
 최종 결과 이미지 수정예정
+
 
 
 
@@ -64,15 +70,19 @@
 
 
 
+
 ### :book: Getting Started(for local)
 
 --------------------
 
+
 #### :bug: Node version : v12.14.1
+
 
 #### :bug: Back 
 
 ​	`npm install ` 후 `npm run dev` 로 실행
+
 
 #### :bug: ​Front 
 
@@ -84,13 +94,16 @@
 
 ---------------
 
+
 #### :bug: ​Server 
 
 ​	node.js
 
+
 #### :bug:Database 
 
 ​	mysql, sequelizer
+
 
 #### :bug: ​Front
 
