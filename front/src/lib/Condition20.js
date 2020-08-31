@@ -195,7 +195,7 @@ module.exports = function condition20(myHistory, myGraduateInfo) {
 
   if (
     state['전문교양']['필수영역']['qualify'] &&
-    Object.keys(dragonBall).filter((x) => dragonBall[x]).length >= 6
+    Object.keys(dragonBall).filter((x) => dragonBall[x] === 0).length >= 6
   ) {
     state['전문교양']['드래곤볼']['qualify'] = 0;
   } else {

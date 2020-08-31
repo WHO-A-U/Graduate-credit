@@ -156,10 +156,6 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
 
   const res = Object.keys(dragonBall).filter((x) => dragonBall[x] > 0);
 
-  res.map((x) => {
-    state['전문교양']['rest'].push(x);
-  });
-
   myHistory.map((x) => {
     if (
       x.subject.indexOf('논리적사고와글쓰기') != -1 ||
@@ -184,7 +180,7 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
 
   if (
     Object.keys(dragonBall).filter(
-      (x) => dragonBall[x] && x.indexOf('일교') !== -1
+      (x) => dragonBall[x] === 0 && x.indexOf('일교') !== -1
     ).length >= 4
   ) {
     state['전문교양']['일반교양필수영역']['qualify'] = 0;
@@ -192,6 +188,14 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
     state['전문교양']['일반교양필수영역']['qualify'] = 1;
   }
 
+  if (
+    state['전문교양']['핵심교양필수영역']['qualify'] === 1 ||
+    state['전문교양']['핵심교양필수영역']['qualify'] === 1
+  ) {
+    res.map((x) => {
+      state['전문교양']['rest'].push(x);
+    });
+  }
   const scienceScore = parseInt(
     myGraduateInfo.find((x) => x.subject === '과학').degree,
     10
