@@ -46,12 +46,7 @@
 
 #### :bug:Database
 
-<<<<<<< HEAD
-`mysql, sequelizer`
-=======
 `mysql`, `sequelizer`
-
-> > > > > > > 7511a9aee7227da059214dff782b9d9adbf57326
 
 #### :bug: Front
 
