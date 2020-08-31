@@ -70,7 +70,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
         </Form.Item>
         <Form.Item
           name="admissionYear"
-          label="admissionYear"
+          label="입학년도"
           rules={[{ required: true, message: '필수선택사항 입니다' }]}
         >
           <Select placeholder="입학년도를 선택해주세요" allowClear>

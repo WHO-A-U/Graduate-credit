@@ -174,7 +174,7 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
   ) {
     state['전문교양']['핵심교양필수영역']['qualify'] = 0;
   } else {
-    state['전문교양']['핵심교양필수영역']['qualify'] = 1;
+    state['전문교양']['핵심교양필수영역']['qualify'] = -1;
   }
 
   if (
@@ -184,12 +184,12 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
   ) {
     state['전문교양']['일반교양필수영역']['qualify'] = 0;
   } else {
-    state['전문교양']['일반교양필수영역']['qualify'] = 1;
+    state['전문교양']['일반교양필수영역']['qualify'] = -1;
   }
 
   if (
-    state['전문교양']['핵심교양필수영역']['qualify'] === 1 ||
-    state['전문교양']['핵심교양필수영역']['qualify'] === 1
+    state['전문교양']['핵심교양필수영역']['qualify'] === -1 ||
+    state['전문교양']['핵심교양필수영역']['qualify'] === -1
   ) {
     res.map((x) => {
       state['전문교양']['rest'].push(x);
