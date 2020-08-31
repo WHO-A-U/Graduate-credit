@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
   } catch (e) {
     //  http 상태와 로그로 출력한다
     console.error(e);
-    throw e;
+    return res.json('fail');
   }
 });
 module.exports = router;
