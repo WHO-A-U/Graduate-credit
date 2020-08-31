@@ -26,10 +26,9 @@ const MyGraduateInfo10To15 = (graduateState) => {
           <>
             {pass.map((tag) => {
               let color = "geekblue";
-
               if (tag.length) color = "volcano";
               if (tag !== 0) color = "volcano";
-
+              if (tag.length === 0) color = "geekblue";
               return (
                 <Tag color={color} key={tag}>
                   {color === "volcano"
@@ -75,12 +74,12 @@ const MyGraduateInfo10To15 = (graduateState) => {
     {
       key: "5",
       condition: `컴공 핵심교양 영역(6영역∼8영역)에서 영역별 각 1과목 이상. 단, 교양과목(교양필수 및 교양선택)의 취득학점은 최대 60학점까지 인정`,
-      pass: [stateArrObj[0].전문교양.핵심교양필수영역.qualify],
+      pass: [stateArrObj[0].전문교양.rest],
     },
     {
       key: "6",
       condition: `컴공 일반교양 영역(1영역∼5영역) 중 4개 영역을 선택하여 각 영역별 1과목 이상 이수. 단, 교양과목(교양필수 및 교양선택)의 취득학점은 최대 60학점까지 인정`,
-      pass: [stateArrObj[0].전문교양.일반교양필수영역.qualify],
+      pass: [stateArrObj[0].전문교양.rest],
     },
     {
       key: "7",
