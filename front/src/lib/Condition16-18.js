@@ -151,10 +151,10 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
       x.subject.indexOf('논리적사고와글쓰기') != -1 ||
       x.subject.indexOf('공학글쓰기') != -1
     ) {
-      state['전문교양']['기초교양']['글쓰기']['qualify'] = 0;
+      state['전문교양']['기초교양']['글쓰기'] = 0;
     }
     if (x.subject === '영어') {
-      state['전문교양']['기초교양']['영어']['qualify'] = 0;
+      state['전문교양']['기초교양']['영어'][] = 0;
     }
   });
 

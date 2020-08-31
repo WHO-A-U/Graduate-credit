@@ -37,9 +37,9 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
         qualify: 0,
       },
     },
-    특성화교양:{
-        qualify: 0,
-    }
+    특성화교양: {
+      qualify: 0,
+    },
     MSC: {
       과학: {
         qualify: 0,
@@ -84,10 +84,13 @@ module.exports = function condition1func(myHistory, myGraduateInfo) {
     state['이수요건']['특성화교양']['qualify'] = 3 - 특성화교양;
   }
 
-  if(mySubjects.includes('디자인씽킹')||mySubjects.includes('창업과 실용법률')){
-    state['이수요건']['특성화교양']=0;
-}else{
-    state['이수요건']['특성화교양']=1;
+  if (
+    mySubjects.includes('디자인씽킹') ||
+    mySubjects.includes('창업과 실용법률')
+  ) {
+    state['이수요건']['특성화교양'] = 0;
+  } else {
+    state['이수요건']['특성화교양'] = 1;
   }
 
   if (
