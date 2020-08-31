@@ -8,13 +8,13 @@
 
 ### :bomb:이젠 그만!!!!!!!!!!!!!!!
 
-#### :bug: 공지사항을 깔끔하게! 전체공지사항, 컴퓨터공학과만의 공지를 한번에!
+#### 	:bug: 공지사항을 깔끔하게! 전체공지사항, 컴퓨터공학과만의 공지를 한번에!
 
 ![image](https://user-images.githubusercontent.com/22141521/91717474-8ecee180-ebcc-11ea-9eff-c24c926b91cb.png)
 
-#### :bug: 학번 별 다른 복잡한 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 한번에 보여드립니다 `+` 내 과목별 성적, 최종성적도 확인해볼 수 있습니다.
+#### 	:bug: 학번 별 다른 복잡한 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 한번에 보여드립니다 		 `+` 내 과목별 성적, 최종성적도 확인해볼 수 있습니다.
 
-최종 결과 이미지 수정예정
+​			최종 결과 이미지 수정예정
 
 
 
@@ -22,7 +22,7 @@
 
 ---
 
-배포 후 수정예정
+​		배포 후 수정예정
 
 
 
@@ -30,15 +30,15 @@
 
 ---
 
-#### :bug: Node version : v12.14.1
+#### 	:bug: Node version : v12.14.1
 
-#### :bug: Back
+#### 	:bug: Back
 
- `npm install ` 후 `npm run dev` 로 실행
+​		 `npm install ` 후 `npm run dev` 로 실행
 
-#### :bug: Front
+#### 	:bug: Front
 
- `npm install` 후 `npm run dev` 로 실행
+ 		`npm install` 후 `npm run dev` 로 실행
 
 
 
@@ -46,15 +46,16 @@
 
 ---
 
-#### :bug: Server
+#### 	:bug: Server
 
- node.js
+ 		node.js
 
-#### :bug:Database
+#### 	:bug:Database
 
- mysql, sequelizer
+ 		mysql, sequelizer
 
-#### :bug: Front
+#### 	:bug: Front
 
-1. React(framework)
-2. javascript(language)
+​		1. React(framework)
+
+​		2. javascript(language)
