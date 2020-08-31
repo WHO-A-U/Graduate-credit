@@ -25,7 +25,6 @@ const MyGraduateInfo19 = (graduateState) => {
         return (
           <>
             {pass.map((tag) => {
-              console.log('난 태그야!', tag);
               let color = 'geekblue';
 
               if (tag.length) color = 'volcano';

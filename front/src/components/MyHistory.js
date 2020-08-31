@@ -45,6 +45,6 @@ const MyHistory = ({ history }) => {
 };
 
 MyHistory.propTypes = {
-  history: PropTypes.object,
+  history: PropTypes.array,
 };
 export default MyHistory;

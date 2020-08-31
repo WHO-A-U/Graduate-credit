@@ -18,10 +18,8 @@ export const getHistory = (id, pw, year) => async (dispatch) => {
   dispatch({ type: GET_HISTORY_REQUEST });
   try {
     const res = await api.getHistory(id, pw);
-    console.log(res);
     if (res.data === 'fail') {
       const err = Error('login_fail');
-      console.log(err);
       throw err;
     }
     dispatch({

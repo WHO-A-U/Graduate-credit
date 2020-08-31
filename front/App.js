@@ -4,12 +4,10 @@ import AppLayout from './src/components/AppLayout';
 import rootReducer from './src/modules';
 import ReduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { createLogger } from 'redux-logger';
 import { Provider } from 'react-redux';
-const logger = createLogger();
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger, ReduxThunk))
+  composeWithDevTools(applyMiddleware(ReduxThunk))
 );
 const App = () => {
   return (

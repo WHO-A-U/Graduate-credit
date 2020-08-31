@@ -1,5 +1,4 @@
 module.exports = function condition1618(myHistory, myGraduateInfo) {
-  console.log('Condition 16-18');
   const state = {
     이수요건: {
       전문교양: {
