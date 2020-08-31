@@ -192,10 +192,6 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
 
   const res = Object.keys(dragonBall).filter((x) => dragonBall[x] > 0);
 
-  res.map((x) => {
-    state['전문교양']['rest'].push(x);
-  });
-
   if (
     state['전문교양']['필수영역']['qualify'] &&
     Object.keys(dragonBall).filter((x) => dragonBall[x] === 0).length >= 6
@@ -203,6 +199,14 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     state['전문교양']['드래곤볼']['qualify'] = 0;
   } else {
     state['전문교양']['드래곤볼']['qualify'] = 1;
+  }
+  if (
+    state['전문교양']['필수영역']['qualify'] === 1 ||
+    state['전문교양']['드래곤볼']['qualify'] === 1
+  ) {
+    res.map((x) => {
+      state['전문교양']['rest'].push(x);
+    });
   }
 
   const scienceScore = parseInt(

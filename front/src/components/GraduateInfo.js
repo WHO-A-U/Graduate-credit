@@ -7,9 +7,6 @@ import MyGraduateInfo10To15 from './MyGraduateInfo10-15';
 import MyGraduateInfo16To18 from './MyGraduateInfo16-18';
 import MyGraduateInfo19 from './MyGraduateInfo19';
 import MyGraduateInfo20 from './MyGraduateInfo20';
-import useSelection from 'antd/lib/table/hooks/useSelection';
-
-import DragonBall16_18 from './DragonBall16_18';
 
 const condition1015 = require('../lib/Condition10-15');
 const condition1618 = require('../lib/Condition16-18');
