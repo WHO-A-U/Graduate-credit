@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from 'react';
 import { Form, Input, Button, Select, Spin } from 'antd';
 import PropTypes from 'prop-types';
-const { Option } = Select;
 import { useDispatch, connect } from 'react-redux';
 import { LOGIN_FAIL } from '../modules/myHistory';
 import { getHistory } from '../modules/myHistory';
+const { Option } = Select;
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
