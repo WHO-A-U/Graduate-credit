@@ -1,18 +1,18 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import MyHistory from '../components/MyHistory';
+import React from "react";
+import { Row, Col } from "antd";
+import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import MyHistory from "../components/MyHistory";
 import TotalDegree from "./TotalDegreeTable";
 
-import MyGraduateInfo10To15 from './MyGraduateInfo10-15';
-import MyGraduateInfo16To18 from './MyGraduateInfo16-18';
-import MyGraduateInfo19 from './MyGraduateInfo19';
-import MyGraduateInfo20 from './MyGraduateInfo20';
-const condition1015 = require('../lib/Condition10-15');
-const condition1618 = require('../lib/Condition16-18');
-const condition19 = require('../lib/Condition19');
-const condition20 = require('../lib/Condition20');
+import MyGraduateInfo10To15 from "./MyGraduateInfo10-15";
+import MyGraduateInfo16To18 from "./MyGraduateInfo16-18";
+import MyGraduateInfo19 from "./MyGraduateInfo19";
+import MyGraduateInfo20 from "./MyGraduateInfo20";
+const condition1015 = require("../lib/Condition10-15");
+const condition1618 = require("../lib/Condition16-18");
+const condition19 = require("../lib/Condition19");
+const condition20 = require("../lib/Condition20");
 
 const degreeObj = { 전공평점: 0, 평점: 0 };
 
@@ -49,7 +49,6 @@ const MyGraduateInfoMaker = (history, year) => {
   return <div>에러 발생... 죄송합니다 ㅜㅜ</div>;
 };
 const GraduateInfo = ({ history }) => {
->>>>>>> 9003b671a1d7beb00fb9181e059ea56406880bb0
   const myYear = parseInt(
     useSelector((state) => state.myHistory.admissionYear)
   );
@@ -65,7 +64,7 @@ const GraduateInfo = ({ history }) => {
                 <MyHistory history={history.subject}></MyHistory>
               </Col>
               <Col>
-                <TotalDegree degree={degreeObj} />
+                <TotalDegree degree={degreeObj} pagination={false} />
               </Col>
             </Row>
           </Row>
