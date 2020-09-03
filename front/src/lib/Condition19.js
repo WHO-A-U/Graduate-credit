@@ -25,8 +25,8 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     },
     전문교양: {
       기초교양: {
-        글쓰기: 1,
-        영어: 1,
+        글쓰기: 3,
+        영어: 3,
       },
       필수영역: {
         //예술과디자인or제2외국어
@@ -34,12 +34,12 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
       },
       드래곤볼: {
         //필수영역을 만족하면서 7개 영역중 6개 클리어
-        qualify: 1,
+        qualify: 0,
       },
       rest: [],
     },
     특성화교양: {
-      qualify: 0,
+      qualify: 3,
     },
     MSC: {
       과학: {
@@ -85,8 +85,8 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
   //     state['이수요건']['특성화교양']['qualify'] = 3 - 특성화교양;
   //   }
 
-  state['이수요건']['특성화교양']['qualify'] = -1;
-  state['특성화교양']['qualify'] = -1;
+  state['이수요건']['특성화교양']['qualify'] = 3;
+  state['특성화교양']['qualify'] = 3;
   mySubjects.map((x) => {
     if (x.indexOf('디자인씽킹') !== -1 || x.indexOf('창업과 실용법률') !== -1) {
       state['이수요건']['특성화교양']['qualify'] = 0;
@@ -101,8 +101,8 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     state['이수요건']['전공기초영어']['qualify'] = 0;
     state['전공기초영어']['qualify'] = 0;
   } else {
-    state['이수요건']['전공기초영어']['qualify'] = 3;
-    state['전공기초영어']['qualify'] = 3;
+    state['이수요건']['전공기초영어']['qualify'] = 2;
+    state['전공기초영어']['qualify'] = 2;
   }
 
   const 전공학점 = parseInt(
@@ -174,8 +174,8 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
 
   myHistory.map((x) => {
     if (
-      x.subject.indexOf('논리적사고와글쓰기') != -1 ||
-      x.subject.indexOf('공학글쓰기') != -1
+      x.subject.indexOf('논리적사고와글쓰기') !== -1 ||
+      x.subject.indexOf('공학글쓰기') !== -1
     ) {
       state['전문교양']['기초교양']['글쓰기'] = 0;
     }

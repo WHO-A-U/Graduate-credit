@@ -22,8 +22,8 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
     },
     전문교양: {
       기초교양: {
-        글쓰기: 1,
-        영어: 1,
+        글쓰기: 3,
+        영어: 3,
       },
       필수영역: {
         //예술과디자인and제2외국어
@@ -31,7 +31,7 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
       },
       드래곤볼: {
         //필수영역을 만족하면서 7개 영역중 6개 클리어
-        qualify: 0,
+        qualify: 1,
       },
       rest: [],
     },
@@ -76,8 +76,8 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
     state['이수요건']['전공기초영어']['qualify'] = 0;
     state['전공기초영어']['qualify'] = 0;
   } else {
-    state['이수요건']['전공기초영어']['qualify'] = 3;
-    state['전공기초영어']['qualify'] = 3;
+    state['이수요건']['전공기초영어']['qualify'] = 2;
+    state['전공기초영어']['qualify'] = 2;
   }
 
   const 전공학점 = parseInt(
@@ -232,7 +232,7 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
   ) {
     state['MSC']['과학조건'] = 0;
   } else {
-    state['MSC']['과학조건'] = 1;
+    state['MSC']['과학조건'] = -1;
   }
   return state;
 };
