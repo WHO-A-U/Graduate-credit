@@ -1,18 +1,18 @@
-import React from 'react';
-import { Row, Col } from 'antd';
-import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import MyHistory from '../components/MyHistory';
+import React from "react";
+import { Row, Col } from "antd";
+import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
+import MyHistory from "../components/MyHistory";
 
-import MyGraduateInfo10To15 from './MyGraduateInfo10-15';
-import MyGraduateInfo16To18 from './MyGraduateInfo16-18';
-import MyGraduateInfo19 from './MyGraduateInfo19';
-import MyGraduateInfo20 from './MyGraduateInfo20';
+import MyGraduateInfo10To15 from "./MyGraduateInfo10-15";
+import MyGraduateInfo16To18 from "./MyGraduateInfo16-18";
+import MyGraduateInfo19 from "./MyGraduateInfo19";
+import MyGraduateInfo20 from "./MyGraduateInfo20";
 
-const condition1015 = require('../lib/Condition10-15');
-const condition1618 = require('../lib/Condition16-18');
-const condition19 = require('../lib/Condition19');
-const condition20 = require('../lib/Condition20');
+const condition1015 = require("../lib/Condition10-15");
+const condition1618 = require("../lib/Condition16-18");
+const condition19 = require("../lib/Condition19");
+const condition20 = require("../lib/Condition20");
 
 const GraduateInfo = ({ history }) => {
   const graduateState10To15 = condition1015(history.subject, history.info);
@@ -25,12 +25,8 @@ const GraduateInfo = ({ history }) => {
   return (
     <>
       <div>
-        <Row>
-          <Col span={8}>
-            <MyHistory history={history.subject}></MyHistory>
-          </Col>
-
-          <Col span={16}>
+        <Col>
+          <Row span={16}>
             {2010 <= myYear && myYear <= 2015 ? (
               <MyGraduateInfo10To15
                 graduateState={graduateState10To15}
@@ -43,8 +39,11 @@ const GraduateInfo = ({ history }) => {
             ) : (
               <MyGraduateInfo20 graduateState={graduateState20} />
             )}
-          </Col>
-        </Row>
+          </Row>
+          <Row span={8}>
+            <MyHistory history={history.subject}></MyHistory>
+          </Row>
+        </Col>
       </div>
     </>
   );
