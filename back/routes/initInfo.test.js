@@ -30,6 +30,20 @@ urls.push({
   section: 3,
 });
 
+for (let i = 1; i <= 3; i++) {
+  urls.push({
+    url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=170&searchField=ALL&searchValue=&searchLowItem=ALL`,
+    section: 4,
+  });
+}
+
+for (let i = 1; i <= 3; i++) {
+  urls.push({
+    url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=6&searchField=ALL&searchValue=&searchLowItem=ALL`,
+    section: 5,
+  });
+}
+
 exports.initTable = (req, res, next) => {
   const info = async () => {
     let all = [];
