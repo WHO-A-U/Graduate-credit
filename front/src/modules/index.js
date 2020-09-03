@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import infoContent from './infoContent';
-import myHistory from './myHistory';
+import { combineReducers } from "redux";
+import infoContent from "./InfoContent";
+import myHistory from "./MyHistory";
 
 const rootReducer = combineReducers({
   infoContent,
