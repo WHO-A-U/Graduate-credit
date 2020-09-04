@@ -170,9 +170,6 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
 };
 const MyGraduateInfo20 = ({ obj }) => {
   const gState = JSON.parse(JSON.stringify(obj));
-  console.log(obj);
-  console.log('***********************************');
-  console.log(gState);
   return (
     <Collapse>
       {PanelMaker(
