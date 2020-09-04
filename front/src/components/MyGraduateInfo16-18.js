@@ -14,8 +14,8 @@ const text3_1 =
   '전문교양(23학점) ② 일반교양, 핵심교양 영역(1영역∼7영역) 에서 예술과 디자인’, ‘제2외국어와 한문’영역을 반드시 포함해야함';
 const text3_2 =
   '7개영역 중 6개 영역을 선택하여 각 영역별 1과목 이상 이수하여야 함.';
-const text4_1 = '컴퓨터공학전공의 MSC과학 최소이수학점은  과학 9학점임.';
-const text4_2 = '컴퓨터공학전공의 MSC수학 최소이수학점은  수학 9학점임.';
+const text4_1 = '컴퓨터공학전공의 MSC수학 최소이수학점은  수학 9학점임.';
+const text4_2 = '컴퓨터공학전공의 MSC과학 최소이수학점은  과학 9학점임.';
 const text4_3 = `※ 공과대학(전자전기공학부 제외)은 MSC 과학분야 중 대학물리(1), 대학물리실험(1), 대학화학(1), 대학화학실험(1)을 반드시 이수하여야 하고, {대학물리(2), 대학물리실험(2)} 와 {대학화학(2), 대학화학실험(2)} 둘 중 택일하여 이수하여야 함.`;
 const noti1 =
   '※ 교양과목(교양필수 및 교양선택)의 취득학점은 최대 50학점까지 인정됨.';
@@ -94,13 +94,26 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
     if (mode === 1) {
       return (
         <Panel header={text} key={keys} extra={getExtra(subjectState)}>
+          <p key={getId()}>
+            해결하지 못한영역 :{' '}
+            {res.map((x) => {
+              if (x === '일교4' || x === '일교5') {
+                return (
+                  <Tag color="volcano" key={getId()}>
+                    {x}
+                  </Tag>
+                );
+              }
+            })}
+          </p>
           {res.map((x, i) => {
-            if (x === '일교4' || x === '핵교6') {
+            if (x === '일교4' || x === '일교5') {
               return (
                 <p key={getId()}>
                   <Tag color="volcano" key={getId()}>
                     {x} | {curriculum['2016'][x[x.length - 1]]['name']}
                   </Tag>
+                  영역을 해결하기위해서
                   {curriculum['2016'][x[x.length - 1]]['subject'].map(
                     (y, j) => (
                       <Tag key={getId()} color="geekblue">
@@ -108,6 +121,7 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
                       </Tag>
                     )
                   )}
+                  이중 하나를 이수하여야 합니다
                 </p>
               );
             }
@@ -121,21 +135,32 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
     } else {
       return (
         <Panel header={text} key={keys} extra={getExtra(subjectState)}>
+          <p key={getId()}>
+            해결하지 못한영역 :{' '}
+            {res.map((x) => (
+              <Tag color="volcano" key={getId()}>
+                {x}
+              </Tag>
+            ))}
+          </p>
           {res.map((x, i) => (
             <p key={getId()}>
               <Tag key={getId()} color="volcano">
                 {x} | {curriculum['2016'][x[x.length - 1]]['name']}
-              </Tag>
+              </Tag>{' '}
+              영역을 해결하기위해서
               {curriculum['2016'][x[x.length - 1]]['subject'].map((y, j) => (
                 <Tag key={getId()} color="geekblue">
                   {y}
                 </Tag>
               ))}
+              이중 하나를 이수하여야 합니다
             </p>
           ))}
-          <p>{`${res.length}개 영역 중에 최소${
-            res.length - 1
-          } 개의 영역을 이수하여야 합니다`}</p>
+          <p>{`${res.length}개 영역 중에 최소${Math.max(
+            res.length - 1,
+            res.filter((x) => x === '일교4' || x === '일교5').length
+          )} 개의 영역을 이수하여야 합니다`}</p>
         </Panel>
       );
     }
@@ -143,6 +168,9 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
 };
 const MyGraduateInfo16To18 = ({ obj }) => {
   const gState = JSON.parse(JSON.stringify(obj));
+  console.log(obj);
+  console.log('***********************************');
+  console.log(gState);
   return (
     <Collapse>
       {PanelMaker(

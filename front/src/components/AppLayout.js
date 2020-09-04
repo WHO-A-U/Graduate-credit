@@ -69,7 +69,7 @@ const AppLayout = ({ isLogined, history }) => {
               {curPage == 1 ? infoList[curInfo] : '졸업학점'}
             </Breadcrumb.Item>
           </Breadcrumb>
-          <div className="site-layout-content">{InfoPage()}</div>
+          {InfoPage()}
         </Content>
       </Layout>
     </>

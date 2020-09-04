@@ -1,4 +1,6 @@
 module.exports = function condition1618(myHistory, myGraduateInfo) {
+  console.log(myHistory);
+  console.log(myGraduateInfo);
   const state = {
     이수요건: {
       전문교양: {
@@ -36,15 +38,9 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
       rest: [],
     },
     MSC: {
-      과학: {
-        qualify: 0,
-      },
-      수학: {
-        qualify: 0,
-      },
-      과학조건: {
-        qualify: 0,
-      },
+      과학: 0,
+      수학: 0,
+      과학조건: 0,
     },
   };
 

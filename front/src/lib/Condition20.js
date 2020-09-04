@@ -184,10 +184,10 @@ module.exports = function condition20(myHistory, myGraduateInfo) {
   const res = Object.keys(dragonBall).filter((x) => dragonBall[x] > 0);
 
   state['전문교양']['필수영역']['qualify'] =
-    dragonBall['일교4'] === 0 || dragonBall['일교5'] === 0 ? 0 : 1;
+    dragonBall['일교4'] === 0 && dragonBall['일교5'] === 0 ? 0 : 1;
 
   if (
-    state['전문교양']['필수영역']['qualify'] &&
+    state['전문교양']['필수영역']['qualify'] === 0 &&
     Object.keys(dragonBall).filter((x) => dragonBall[x] === 0).length >= 6
   ) {
     state['전문교양']['드래곤볼']['qualify'] = 0;
@@ -217,7 +217,7 @@ module.exports = function condition20(myHistory, myGraduateInfo) {
   if (scienceScore + mathScore >= 18) {
     state['MSC']['수학과학']['qualify'] = 0;
   } else {
-    state['MSC']['수학과학']['qualify'] = 18 - mathScore;
+    state['MSC']['수학과학']['qualify'] = 18 - (mathScore + scienceScore);
   }
 
   const MSCcomputer =
