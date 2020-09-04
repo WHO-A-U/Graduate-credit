@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Layout, Breadcrumb, Row, Col } from 'antd';
+import { GithubOutlined } from '@ant-design/icons';
 import GraduateForm from './GraduateForm';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
@@ -98,7 +99,14 @@ const AppLayout = ({ isLogined, history }) => {
           {InfoPage()}
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
+          <a href="https://github.com/WHO-A-U">
+            <GithubOutlined style={{ fontSize: 30, margin: 10 }} />
+          </a>
+          <a href="https://github.com/zmrdltl">
+            <GithubOutlined
+              style={{ fontSize: 30, margin: 10, color: 'black' }}
+            />
+          </a>
         </Footer>
       </Layout>
     </>
