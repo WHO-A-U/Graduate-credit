@@ -6,7 +6,7 @@ export const getInfo = () =>
 export const getHistory = (id, pw) => {
   return axios({
     method: 'post',
-    url: 'http://localhost:3065/api/myHistory',
+    url: 'http://localhost:3065/api/initTest',
     headers: {},
     data: {
       classnet: id,
