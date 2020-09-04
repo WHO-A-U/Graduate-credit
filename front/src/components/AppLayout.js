@@ -7,7 +7,7 @@ import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
 import InfoTabsContainer from '../container/InfoTabsContainer';
 import FAQ from './FAQ';
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 
 const infoList = {
   1: '컴퓨터공학과 공지',
@@ -76,7 +76,15 @@ const AppLayout = ({ isLogined, history }) => {
     <>
       <Layout className="layout">
         <Navigator onClick={onClickPage}></Navigator>
-        <Content>
+        <Content
+          style={{
+            paddingLeft: 24,
+            paddingRight: 24,
+            paddingBottom: 24,
+            margin: 0,
+            minHeight: 280,
+          }}
+        >
           <Breadcrumb style={{ margin: '24px 24px 24px 24px' }}>
             <Breadcrumb.Item>{CurPageList[curPage]}</Breadcrumb.Item>
 
@@ -87,6 +95,9 @@ const AppLayout = ({ isLogined, history }) => {
           </Breadcrumb>
           {InfoPage()}
         </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Ant Design ©2018 Created by Ant UED
+        </Footer>
       </Layout>
     </>
   );

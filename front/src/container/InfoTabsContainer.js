@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import InfoTabs from '../components/InfoTabs';
 import { connect } from 'react-redux';
 import { getInfo } from '../modules/InfoContent';
+import { Spin } from 'antd';
 function isEmptyObject(param) {
   if (param === undefined) return true;
   return Object.keys(param).length === 0 && param.constructor === Object;
@@ -14,7 +15,7 @@ const InfoTabsContainer = ({ setCurInfofn, info, getInfo }) => {
   }, [getInfo]);
 
   return isEmptyObject(info) ? (
-    <div>로딩중....</div>
+    <Spin tip="Loading ..."></Spin>
   ) : (
     <>
       <InfoTabs
