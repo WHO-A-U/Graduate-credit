@@ -37,15 +37,9 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
       },
     },
     MSC: {
-      과학: {
-        qualify: 0,
-      },
-      수학: {
-        qualify: 0,
-      },
-      과학조건: {
-        qualify: 0,
-      },
+      과학: 0,
+      수학: 0,
+      과학조건: 0,
     },
   };
 

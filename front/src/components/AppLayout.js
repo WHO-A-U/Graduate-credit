@@ -82,7 +82,7 @@ const AppLayout = ({ isLogined, history }) => {
             </Breadcrumb.Item>
             <Breadcrumb.Item>{curPage === 3 ? "FAQ" : ""}</Breadcrumb.Item>
           </Breadcrumb>
-          <div className="site-layout-content">{InfoPage()}</div>
+          {InfoPage()}
         </Content>
       </Layout>
     </>

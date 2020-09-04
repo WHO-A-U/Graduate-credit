@@ -42,15 +42,9 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
       qualify: 3,
     },
     MSC: {
-      과학: {
-        qualify: 0,
-      },
-      수학: {
-        qualify: 0,
-      },
-      과학조건: {
-        qualify: 0,
-      },
+      과학: 0,
+      수학: 0,
+      과학조건: 0,
     },
   };
 
@@ -185,12 +179,12 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
   });
 
   state['전문교양']['필수영역']['qualify'] =
-    dragonBall['일교4'] === 0 || dragonBall['일교5'] === 0 ? 0 : 1;
+    dragonBall['일교4'] === 0 && dragonBall['일교5'] === 0 ? 0 : 1;
 
   const res = Object.keys(dragonBall).filter((x) => dragonBall[x] > 0);
 
   if (
-    state['전문교양']['필수영역']['qualify'] &&
+    state['전문교양']['필수영역']['qualify'] === 0 &&
     Object.keys(dragonBall).filter((x) => dragonBall[x] === 0).length >= 6
   ) {
     state['전문교양']['드래곤볼']['qualify'] = 0;

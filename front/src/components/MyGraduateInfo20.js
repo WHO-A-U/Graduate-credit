@@ -96,13 +96,26 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
     if (mode === 1) {
       return (
         <Panel header={text} key={keys} extra={getExtra(subjectState)}>
+          <p key={getId()}>
+            해결하지 못한영역 :{' '}
+            {res.map((x) => {
+              if (x === '일교4' || x === '일교5') {
+                return (
+                  <Tag color="volcano" key={getId()}>
+                    {x}
+                  </Tag>
+                );
+              }
+            })}
+          </p>
           {res.map((x, i) => {
-            if (x === '일교4' || x === '핵교6') {
+            if (x === '일교4' || x === '일교5') {
               return (
                 <p key={getId()}>
                   <Tag color="volcano" key={getId()}>
                     {x} | {curriculum['2016'][x[x.length - 1]]['name']}
                   </Tag>
+                  영역을 해결하기위해서
                   {curriculum['2016'][x[x.length - 1]]['subject'].map(
                     (y, j) => (
                       <Tag key={getId()} color="geekblue">
@@ -110,6 +123,7 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
                       </Tag>
                     )
                   )}
+                  이중 하나를 이수하여야 합니다
                 </p>
               );
             }
@@ -123,21 +137,32 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
     } else {
       return (
         <Panel header={text} key={keys} extra={getExtra(subjectState)}>
+          <p key={getId()}>
+            해결하지 못한영역 :{' '}
+            {res.map((x) => (
+              <Tag color="volcano" key={getId()}>
+                {x}
+              </Tag>
+            ))}
+          </p>
           {res.map((x, i) => (
             <p key={getId()}>
               <Tag key={getId()} color="volcano">
                 {x} | {curriculum['2016'][x[x.length - 1]]['name']}
-              </Tag>
+              </Tag>{' '}
+              영역을 해결하기위해서
               {curriculum['2016'][x[x.length - 1]]['subject'].map((y, j) => (
                 <Tag key={getId()} color="geekblue">
                   {y}
                 </Tag>
               ))}
+              이중 하나를 이수하여야 합니다
             </p>
           ))}
-          <p>{`${res.length}개 영역 중에 최소${
-            res.length - 1
-          } 개의 영역을 이수하여야 합니다`}</p>
+          <p>{`${res.length}개 영역 중에 최소${Math.max(
+            res.length - 1,
+            res.filter((x) => x === '일교4' || x === '일교5').length
+          )} 개의 영역을 이수하여야 합니다`}</p>
         </Panel>
       );
     }
@@ -162,12 +187,7 @@ const MyGraduateInfo20 = ({ obj }) => {
       {PanelMaker(text1_3, gState['이수요건']['이수학점']['qualify'], 5)}
       {PanelMaker(text2_1, gState['전공기초영어']['qualify'], 6)}
       {PanelMaker(text3_1_1, gState['전문교양']['기초교양']['글쓰기'], 7)}
-      {PanelMaker(
-        text3_1_2,
-        gState['전문교양']['기초교양']['영어'],
-
-        8
-      )}
+      {PanelMaker(text3_1_2, gState['전문교양']['기초교양']['영어'], 8)}
       {PanelListMaker(
         text3_1,
         gState['전문교양']['필수영역']['qualify'],
@@ -178,7 +198,6 @@ const MyGraduateInfo20 = ({ obj }) => {
       {PanelListMaker(
         text3_2,
         gState['전문교양']['드래곤볼']['qualify'],
-
         11,
         gState['전문교양']['rest'],
         2
