@@ -39,6 +39,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
         form={form}
         name="studentForm"
         labelAlign="left"
+        {...layout}
         initialValues={{ remember: true }}
         onFinish={onSubmitForm}
         size="middle"

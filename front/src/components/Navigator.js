@@ -1,14 +1,15 @@
-import React from "react";
-import { Layout, Menu } from "antd";
+import React from 'react';
+import { Layout, Menu } from 'antd';
 const { Header } = Layout;
 const Navigator = ({ onClick }) => {
   return (
-    <Header>
+    <Header sm={12}>
       <div className="logo" />
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={['1']}
+        style={{ minWidth: '300px' }}
         onClick={onClick}
       >
         <Menu.Item key="1" title="1">

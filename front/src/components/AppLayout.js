@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout, Breadcrumb, Row, Col } from 'antd';
 import GraduateForm from './GraduateForm';
 import GraduateInfo from './GraduateInfo';
 import Navigator from './Navigator';
@@ -19,7 +19,7 @@ const infoList = {
 const CurPageList = {
   1: '공지사항',
   2: '졸업학점 계산기',
-  3: 'FAQ',
+  3: '',
 };
 const AppLayout = ({ isLogined, history }) => {
   const [curPage, setCurPage] = useState(1);
@@ -56,7 +56,9 @@ const AppLayout = ({ isLogined, history }) => {
             history={history}
           ></GraduateInfo>
         ) : (
-          <GraduateForm className="site-layout-content"></GraduateForm>
+          <Col lg={12} xs={24} md={12} sm={16}>
+            <GraduateForm className="site-layout-content"></GraduateForm>
+          </Col>
         );
       case 3:
         return (
