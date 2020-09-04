@@ -3,15 +3,14 @@ import React from "react";
 const FAQ = () => {
   return (
     <iframe
-      width="50%"
-      src="https://docs.google.com/forms/d/1OkqKWo-QNAqHdcljvwwxvBuynWIz5cj0vL_JXd44euQ/edit"
-      name="test"
-      id="test"
-      frameborder="1"
-      scrolling="yes"
-      align="left"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSc0awZuMkrlZG2h7T7dQkRW6n4DItIndmlG32QJ6DJBesjp4g/viewform?embedded=true"
+      width="640"
+      height="1202"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
     >
-      이 브라우저는 iframe을 지원하지 않습니다
+      로드 중…
     </iframe>
   );
 };
