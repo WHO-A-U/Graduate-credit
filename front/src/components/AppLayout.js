@@ -76,7 +76,7 @@ const AppLayout = ({ isLogined, history }) => {
 
   return (
     <>
-      <Layout className="layout">
+      <Layout className="layout" style={{ minHeight: '100vh' }}>
         <Navigator onClick={onClickPage}></Navigator>
         <Content
           style={{
