@@ -23,6 +23,13 @@ const TotalDegree = (degree) => {
     },
   ];
 
-  return <Table tableLayout="fixed" columns={columns} dataSource={data} />;
+  return (
+    <Table
+      tableLayout="fixed"
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+    />
+  );
 };
 export default TotalDegree;

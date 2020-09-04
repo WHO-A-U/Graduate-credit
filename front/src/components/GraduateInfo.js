@@ -64,7 +64,7 @@ const GraduateInfo = ({ history }) => {
                 <MyHistory history={history.subject}></MyHistory>
               </Col>
               <Col>
-                <TotalDegree degree={degreeObj} pagination={false} />
+                <TotalDegree degree={degreeObj} />
               </Col>
             </Row>
           </Row>
