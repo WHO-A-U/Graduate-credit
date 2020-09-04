@@ -16,6 +16,11 @@ const infoList = {
   4: '일반 공지',
   5: '인턴 및 대외활동 공지',
 };
+const CurPageList = {
+  1: '공지사항',
+  2: '졸업학점 계산기',
+  3: 'FAQ',
+};
 const AppLayout = ({ isLogined, history }) => {
   const [curPage, setCurPage] = useState(1);
   const [curInfo, setCurInfo] = useState(1);
@@ -73,13 +78,12 @@ const AppLayout = ({ isLogined, history }) => {
         <Navigator onClick={onClickPage}></Navigator>
         <Content>
           <Breadcrumb style={{ margin: '24px 24px 24px 24px' }}>
-            <Breadcrumb.Item>
-              {curPage === 1 ? '공지사항' : '졸업학점 계산기'}
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              {curPage === 1 ? infoList[curInfo] : '졸업학점'}
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>{curPage === 3 ? 'FAQ' : ''}</Breadcrumb.Item>
+            <Breadcrumb.Item>{CurPageList[curPage]}</Breadcrumb.Item>
+
+            {curPage === 1 && (
+              <Breadcrumb.Item>{infoList[curInfo]}</Breadcrumb.Item>
+            )}
+            {curPage === 2 && <Breadcrumb.Item>{'졸업학점'}</Breadcrumb.Item>}
           </Breadcrumb>
           {InfoPage()}
         </Content>
