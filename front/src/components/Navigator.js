@@ -1,5 +1,5 @@
-import React from 'react';
-import { Layout, Menu } from 'antd';
+import React from "react";
+import { Layout, Menu } from "antd";
 const { Header } = Layout;
 const Navigator = ({ onClick }) => {
   return (
@@ -8,7 +8,7 @@ const Navigator = ({ onClick }) => {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['1']}
+        defaultSelectedKeys={["1"]}
         onClick={onClick}
       >
         <Menu.Item key="1" title="1">
@@ -16,6 +16,9 @@ const Navigator = ({ onClick }) => {
         </Menu.Item>
         <Menu.Item key="2" title="2">
           졸업학점 계산기
+        </Menu.Item>
+        <Menu.Item key="3" title="3">
+          FAQ
         </Menu.Item>
       </Menu>
     </Header>
