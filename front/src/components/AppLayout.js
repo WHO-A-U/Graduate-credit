@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react';
 import { Layout, Breadcrumb, Col } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import GraduateForm from './GraduateForm';
@@ -72,7 +73,11 @@ const AppLayout = ({ isLogined, history }) => {
                 </p>
                 <p>
                   ※졸업요건이 교육인증대상에 해당하신분들은{' '}
-                  <a href="./2020_Curriculum.hwp" download>
+                  <a
+                    href="http://www.ce.hongik.ac.kr/dept/cs/0302.html"
+                    target="_blank"
+                    download
+                  >
                     추가적인 졸업요건
                   </a>
                   을 조회하시기 바랍니다
