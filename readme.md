@@ -10,7 +10,7 @@
 
 #### :bug: 공지사항을 깔끔하게! 전체공지사항, 컴퓨터공학과만의 공지를 한번에!
 
-![image](https://user-images.githubusercontent.com/22141521/91717474-8ecee180-ebcc-11ea-9eff-c24c926b91cb.png)
+![image](https://user-images.githubusercontent.com/22141521/92309072-36894c80-efdd-11ea-985f-b8907d7b6ff0.png)
 
 #### :bug: 졸업요건을 자신의 클래스넷 id와 pw, 입학년도만 입력하면 끝 `+` 내 과목별 성적 확인가능!
 
