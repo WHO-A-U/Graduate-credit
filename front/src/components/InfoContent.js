@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { useSelector } from 'react-redux';
 import { Table } from 'antd';
 
 const titleRender = (text, record) => {
@@ -30,10 +30,12 @@ const columns = [
 ];
 
 const InfoContent = ({ Contentlist }) => {
+  const isloading = useSelector((state) => state.infoContent.loading);
   return (
     <>
       <Table
         tableLayout="auto"
+        loading={isloading}
         columns={columns}
         dataSource={Contentlist}
         rowKey="title"
