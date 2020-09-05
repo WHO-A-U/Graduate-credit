@@ -57,9 +57,33 @@ const AppLayout = ({ isLogined, history }) => {
             history={history}
           ></GraduateInfo>
         ) : (
-          <Col lg={12} xs={24} md={12} sm={16}>
-            <GraduateForm className="site-layout-content"></GraduateForm>
-          </Col>
+          <>
+            <Col lg={14} xs={24}>
+              <div>
+                <p>
+                  ※클래스넷 로그인정보를 입력하시면 졸업요건을 충족하는지
+                  확인하실 수 있습니다
+                </p>
+
+                <p>
+                  ※해당 졸업학점계산기는 교육과정 비인증대상
+                  (컴퓨터공학과),(컴퓨터공학과 예정 정보컴퓨터공학부) 학생만
+                  해당이됩니다 (복수전공,융합전공은 해당되지 않습니다)
+                </p>
+                <p>
+                  ※졸업요건이 교육인증대상에 해당하신분들은{' '}
+                  <a href="./2020_Curriculum.hwp" download>
+                    추가적인 졸업요건
+                  </a>
+                  을 조회하시기 바랍니다
+                </p>
+                <b>이 사이트는 절대 개인의 데이터를 저장하지 않습니다</b>
+              </div>
+            </Col>
+            <Col lg={12} xs={24} md={12} sm={16}>
+              <GraduateForm className="site-layout-content"></GraduateForm>
+            </Col>
+          </>
         );
       case 3:
         return (
