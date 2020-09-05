@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
-import { Form, Input, Button, Select, Spin } from 'antd';
-import PropTypes from 'prop-types';
-import { useDispatch, connect } from 'react-redux';
-import { LOGIN_FAIL } from '../modules/MyHistory';
-import { getHistory } from '../modules/MyHistory';
+import React, { useCallback, useEffect } from "react";
+import { Form, Input, Button, Select, Spin, Text } from "antd";
+import PropTypes from "prop-types";
+import { useDispatch, connect } from "react-redux";
+import { LOGIN_FAIL } from "../modules/MyHistory";
+import { getHistory } from "../modules/MyHistory";
 const { Option } = Select;
 const layout = {
   labelCol: { span: 8 },
@@ -30,7 +30,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
 
   useEffect(() => {
     if (loginFailure === true) {
-      alert('로그인 실패 학번과 비밀번호를 확인해주세요');
+      alert("로그인 실패 학번과 비밀번호를 확인해주세요");
       dispatch({ type: LOGIN_FAIL });
       onReset();
     }
@@ -50,7 +50,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
         <Form.Item
           label="학번"
           name="userid"
-          rules={[{ required: true, message: '클래스넷 학번을 입력해주세요!' }]}
+          rules={[{ required: true, message: "클래스넷 학번을 입력해주세요!" }]}
         >
           <Input />
         </Form.Item>
@@ -60,7 +60,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
           label="Password"
           name="password"
           rules={[
-            { required: true, message: '클래스넷 비밀번호를 입력해주세요' },
+            { required: true, message: "클래스넷 비밀번호를 입력해주세요" },
           ]}
         >
           <Input.Password />
@@ -68,7 +68,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
         <Form.Item
           name="admissionYear"
           label="입학년도"
-          rules={[{ required: true, message: '필수선택사항 입니다' }]}
+          rules={[{ required: true, message: "필수선택사항 입니다" }]}
         >
           <Select placeholder="입학년도를 선택해주세요" allowClear>
             <Option value="2014">2014</Option>
