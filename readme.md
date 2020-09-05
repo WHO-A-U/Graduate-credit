@@ -59,7 +59,7 @@ react-create-app
 
 #### :bug:Database
 
-`mysql`, `sequelizer`
+`mysql`
 
 #### :bug: Front
 
