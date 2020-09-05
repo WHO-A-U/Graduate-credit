@@ -29,6 +29,7 @@ app.use(
     name: "(로그인유지상태판단을위한쿠키)의 이름값",
   })
 );
+
 setInterval(() => {
   initTable(0, 0, () => {
     console.log("Crawling Info Data");

@@ -13,33 +13,33 @@ const getHtml = async (url) => {
 const urls = [];
 for (let i = 1; i <= 3; i++) {
   urls.push({
-    url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=2&searchField=ALL&searchValue=&searchLowItem=ALL`,
+    url: `https://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=2&searchField=ALL&searchValue=&searchLowItem=ALL`,
     section: 1,
   });
 }
 
 for (let i = 1; i <= 3; i++) {
   urls.push({
-    url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=3&searchField=ALL&searchValue=&searchLowItem=ALL`,
+    url: `https://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=3&searchField=ALL&searchValue=&searchLowItem=ALL`,
     section: 2,
   });
 }
 
 urls.push({
-  url: `http://www.hongik.ac.kr/front/boardlist.do?bbsConfigFK=54&siteGubun=1&menuGubun=1`,
+  url: `https://www.hongik.ac.kr/front/boardlist.do?bbsConfigFK=54&siteGubun=1&menuGubun=1`,
   section: 3,
 });
 
 for (let i = 1; i <= 3; i++) {
   urls.push({
-    url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=170&searchField=ALL&searchValue=&searchLowItem=ALL`,
+    url: `https://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=170&searchField=ALL&searchValue=&searchLowItem=ALL`,
     section: 4,
   });
 }
 
 for (let i = 1; i <= 3; i++) {
   urls.push({
-    url: `http://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=6&searchField=ALL&searchValue=&searchLowItem=ALL`,
+    url: `https://www.hongik.ac.kr/front/boardlist.do?currentPage=${i}&menuGubun=1&siteGubun=1&bbsConfigFK=6&searchField=ALL&searchValue=&searchLowItem=ALL`,
     section: 5,
   });
 }
