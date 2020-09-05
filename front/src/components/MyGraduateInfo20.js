@@ -27,18 +27,6 @@ const getId = () => {
   id += 1;
   return id;
 };
-const fail = () => ({
-  backgroundColor: '#fff2e9',
-});
-
-const sucs = () => ({
-  backgroundColor: '#f1f5ff',
-});
-
-const colorPicker = (tmp) => {
-  if (tmp <= 0) return sucs();
-  return fail();
-};
 const getExtra = (subjectState) => {
   if (subjectState === 0) {
     return (
@@ -106,6 +94,7 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
                   </Tag>
                 );
               }
+              return null;
             })}
           </p>
           {res.map((x, i) => {
@@ -127,6 +116,7 @@ const PanelListMaker = (text, subjectState, keys, res, mode) => {
                 </p>
               );
             }
+            return null;
           })}
           <p>
             모든 영역을 해결해야합니다 각영역의 과목을 최소하나씩 이수하여야

@@ -6,7 +6,7 @@ const columns = [
     title: '학수번호',
     dataIndex: 'number',
     key: 'number',
-    render: (text) => <a>{text}</a>,
+    render: (text) => <a href="/#">{text}</a>,
   },
   {
     title: '과목명(국)',
@@ -31,19 +31,19 @@ const columns = [
       if (text === 'A+') {
         return <Tag color="purple">A+</Tag>;
       } else if (text === 'A0') {
-        return <Tag color="geekblue">A</Tag>;
+        return <Tag color="geekblue">A0</Tag>;
       } else if (text === 'B+') {
         return <Tag color="green">B+</Tag>;
       } else if (text === 'B0') {
-        return <Tag color="lime">B</Tag>;
+        return <Tag color="lime">B0</Tag>;
       } else if (text === 'C+') {
         return <Tag color="orange">C+</Tag>;
       } else if (text === 'C0') {
-        return <Tag color="volcano">C</Tag>;
+        return <Tag color="volcano">C0</Tag>;
       } else if (text === 'D+') {
         return <Tag color="red">D+</Tag>;
       } else if (text === 'D0') {
-        return <Tag color="magenta">D</Tag>;
+        return <Tag color="magenta">D0</Tag>;
       } else if (text === 'P') {
         return <Tag color="default">P</Tag>;
       }

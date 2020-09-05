@@ -12,7 +12,7 @@ function isEmptyObject(param) {
 const InfoTabsContainer = ({ setCurInfofn, info, getInfo }) => {
   useEffect(() => {
     if (isEmptyObject(info)) getInfo();
-  }, [getInfo]);
+  }, [getInfo, info]);
 
   return isEmptyObject(info) ? (
     <Spin tip="Loading ..."></Spin>

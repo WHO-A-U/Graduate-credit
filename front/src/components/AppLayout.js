@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Layout, Breadcrumb, Row, Col } from 'antd';
+import { Layout, Breadcrumb, Col } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import GraduateForm from './GraduateForm';
 import GraduateInfo from './GraduateInfo';
@@ -72,6 +72,8 @@ const AppLayout = ({ isLogined, history }) => {
             <FAQ />
           </div>
         );
+      default:
+        return <div>에러 입니다 ㅜㅜ 죄송합니다 ㅜㅜ</div>;
     }
   };
 

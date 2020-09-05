@@ -15,12 +15,14 @@ const SubjectCardList = ({ info }) => {
     },
   ];
   const data = info.map((x, i) => {
-    if (x.subject.indexOf('평점') === -1)
+    if (x.subject.indexOf('평점') === -1) {
       return {
-        key: i,
+        key: i + 100,
         subject: x.subject,
         value: x.degree + '학점',
       };
+    }
+    return null;
   });
   return <Table columns={columns} dataSource={data} />;
 };

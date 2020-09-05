@@ -85,7 +85,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
 
   state['이수요건']['특성화교양']['qualify'] = 3;
   state['특성화교양']['qualify'] = 3;
-  mySubjects.map((x) => {
+  mySubjects.forEach((x) => {
     if (x.indexOf('디자인씽킹') !== -1 || x.indexOf('창업과실용법률') !== -1) {
       state['이수요건']['특성화교양']['qualify'] = 0;
       state['특성화교양']['qualify'] = 0;
@@ -120,7 +120,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
   // );
 
   let 졸업인정학점;
-  myGraduateInfo.map((x) => {
+  myGraduateInfo.forEach((x) => {
     if (x.subject === '졸업인정학점') {
       졸업인정학점 = x.degree;
     }
@@ -142,7 +142,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     핵교7: 1, //공학의 이해
   };
 
-  myGraduateInfo.map((x) => {
+  myGraduateInfo.forEach((x) => {
     switch (x.subject) {
       case '일교1':
         dragonBall['일교1'] = x.degree > 0 ? 0 : 1;
@@ -170,7 +170,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     }
   });
 
-  myHistory.map((x) => {
+  myHistory.forEach((x) => {
     if (
       x.subject.indexOf('논리적사고와글쓰기') !== -1 ||
       x.subject.indexOf('공학글쓰기') !== -1
@@ -199,7 +199,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     state['전문교양']['필수영역']['qualify'] === 1 ||
     state['전문교양']['드래곤볼']['qualify'] === 1
   ) {
-    res.map((x) => {
+    res.forEach((x) => {
       state['전문교양']['rest'].push(x);
     });
   }
@@ -236,7 +236,7 @@ module.exports = function condition19(myHistory, myGraduateInfo) {
     '대학화학실험(2)': 1,
   };
 
-  myHistory.map((x) => {
+  myHistory.forEach((x) => {
     if (Object.prototype.hasOwnProperty.call(science, x.subject)) {
       science[x.subject] = 0;
     }

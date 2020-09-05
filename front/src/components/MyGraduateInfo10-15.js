@@ -26,18 +26,6 @@ const getId = () => {
   id += 1;
   return id;
 };
-const fail = () => ({
-  backgroundColor: '#fff2e9',
-});
-
-const sucs = () => ({
-  backgroundColor: '#f1f5ff',
-});
-
-const colorPicker = (tmp) => {
-  if (tmp <= 0) return sucs();
-  return fail();
-};
 const getExtra = (subjectState) => {
   if (subjectState === 0) {
     return (
@@ -89,6 +77,7 @@ const SiencePanelMaker = (text, subjectState, keys, res) => {
                     </Tag>
                   );
                 }
+                return null;
               })}
               를 이수하거나
               {res.option.map((x) => {
@@ -99,6 +88,7 @@ const SiencePanelMaker = (text, subjectState, keys, res) => {
                     </Tag>
                   );
                 }
+                return null;
               })}{' '}
               를 이수하면 됩니다
             </p>
