@@ -97,7 +97,7 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
   // );
 
   let 졸업인정학점;
-  myGraduateInfo.map((x) => {
+  myGraduateInfo.forEach((x) => {
     if (x.subject === '졸업인정학점') {
       졸업인정학점 = x.degree;
     }
@@ -120,7 +120,7 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
     핵교8: 1, //의사소통
   };
 
-  myGraduateInfo.map((x) => {
+  myGraduateInfo.forEach((x) => {
     switch (x.subject) {
       case '일교1':
         dragonBall['일교1'] = x.degree > 0 ? 0 : 1;
@@ -151,9 +151,7 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
     }
   });
 
-  const res = Object.keys(dragonBall).filter((x) => dragonBall[x] > 0);
-
-  myHistory.map((x) => {
+  myHistory.forEach((x) => {
     if (
       x.subject.indexOf('논리적사고와글쓰기') !== -1 ||
       x.subject.indexOf('공학글쓰기') !== -1
@@ -193,14 +191,6 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
     }
   }
 
-  // if (
-  //   state['전문교양']['핵심교양필수영역']['qualify'] === 1 ||
-  //   state['전문교양']['핵심교양필수영역']['qualify'] === 1
-  // ) {
-  //   res.map((x) => {
-  //     state['전문교양']['rest'].push(x);
-  //   });
-  // }
   const scienceScore = parseInt(
     myGraduateInfo.find((x) => x.subject === '과학').degree,
     10
@@ -233,7 +223,7 @@ module.exports = function condition1015(myHistory, myGraduateInfo) {
     '대학화학실험(2)': 1,
   };
 
-  myHistory.map((x) => {
+  myHistory.forEach((x) => {
     if (Object.prototype.hasOwnProperty.call(science, x.subject)) {
       science[x.subject] = 0;
     }

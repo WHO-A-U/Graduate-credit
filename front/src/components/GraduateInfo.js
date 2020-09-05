@@ -59,19 +59,15 @@ const GraduateInfo = ({ history }) => {
       <div>
         <Col>
           <Row>
-            <Col span={22} offset={1}>
+            <Col lg={{ span: 22, offset: 1 }} xs={{ span: 24 }}>
               {MyGraduateInfoMaker(history, myYear)}
             </Col>
           </Row>
           <Row span={8} className="subjectHistory">
-            <Col xs={{ span: 22, offset: 1 }} lg={{ span: 12, offset: 1 }}>
+            <Col xs={{ span: 24, offset: 0 }} lg={{ span: 12, offset: 1 }}>
               <MyHistory history={history.subject}></MyHistory>
             </Col>
-            <Col
-              xs={{ span: 22, offset: 1 }}
-              lg={{ span: 8, offset: 1 }}
-              offset={1}
-            >
+            <Col xs={{ span: 24, offset: 0 }} lg={{ span: 8, offset: 1 }}>
               <SubjectCardList info={history.info}></SubjectCardList>
             </Col>
             <Col>

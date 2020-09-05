@@ -16,14 +16,17 @@ const tailLayout = {
 
 const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
   const dispatch = useDispatch();
-  const onSubmitForm = useCallback((output) => {
-    getHistory(output.userid, output.password, output.admissionYear);
-  }, []);
+  const onSubmitForm = useCallback(
+    (output) => {
+      getHistory(output.userid, output.password, output.admissionYear);
+    },
+    [getHistory]
+  );
 
   const [form] = Form.useForm();
-  const onReset = () => {
+  const onReset = useCallback(() => {
     form.resetFields();
-  };
+  }, [form]);
 
   useEffect(() => {
     if (loginFailure === true) {
@@ -31,7 +34,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
       dispatch({ type: LOGIN_FAIL });
       onReset();
     }
-  }, [loginFailure]);
+  }, [loginFailure, dispatch, onReset]);
 
   return (
     <Spin spinning={isLoading} tip="Loading ... ">
