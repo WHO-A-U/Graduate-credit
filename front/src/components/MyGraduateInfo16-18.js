@@ -52,6 +52,60 @@ const getExtra = (subjectState) => {
     );
   }
 };
+const SiencePanelMaker = (text, subjectState, keys, res) => {
+  if (subjectState === 0) {
+    return (
+      <Panel
+        header={text}
+        key={keys}
+        extra={getExtra(subjectState)}
+        disabled
+      ></Panel>
+    );
+  } else {
+    return (
+      <Panel header={text} key={keys} extra={getExtra(subjectState)}>
+        {res.essential.length > 0 && (
+          <p>
+            필수적으로 이수해야될 과학 과목은
+            {res.essential.map((x) => (
+              <Tag color="volcano" key={getId()}>
+                {x}
+              </Tag>
+            ))}{" "}
+            입니다
+          </p>
+        )}
+        {res.option.filter((x) => x.indexOf("물리") !== -1).length > 0 &&
+          res.option.filter((x) => x.indexOf("화학") !== -1).length > 0 && (
+            <p>
+              {`( 2 )`} 과목의 경우{" "}
+              {res.option.map((x) => {
+                if (x.indexOf("물리") !== -1) {
+                  return (
+                    <Tag key={getId()} color="volcano">
+                      {x}
+                    </Tag>
+                  );
+                }
+              })}
+              를 이수하거나
+              {res.option.map((x) => {
+                if (x.indexOf("화학") !== -1) {
+                  return (
+                    <Tag key={getId()} color="volcano">
+                      {x}
+                    </Tag>
+                  );
+                }
+              })}{" "}
+              를 이수하면 됩니다
+            </p>
+          )}
+      </Panel>
+    );
+  }
+};
 const PanelMaker = (text, subjectState, keys) => {
   if (subjectState === 0) {
     return (
@@ -218,11 +272,11 @@ const MyGraduateInfo16To18 = ({ obj }) => {
 
         14
       )}
-      {PanelMaker(
+      {SiencePanelMaker(
         text4_3,
         gState["MSC"]["과학조건"],
-
-        15
+        15,
+        gState["MSC"]["rest"]
       )}
       <Panel header={"비고"} key="17">
         <p>{noti1}</p>

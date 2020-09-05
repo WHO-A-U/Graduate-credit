@@ -31,7 +31,7 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
       dispatch({ type: LOGIN_FAIL });
       onReset();
     }
-  });
+  }, [loginFailure]);
 
   return (
     <Spin spinning={isLoading} tip="Loading ... ">
@@ -68,10 +68,6 @@ const GraduateForm = ({ isLoading, loginFailure, getHistory }) => {
           rules={[{ required: true, message: "필수선택사항 입니다" }]}
         >
           <Select placeholder="입학년도를 선택해주세요" allowClear>
-            <Option value="2010">2010</Option>
-            <Option value="2011">2011</Option>
-            <Option value="2012">2012</Option>
-            <Option value="2013">2013</Option>
             <Option value="2014">2014</Option>
             <Option value="2015">2015</Option>
             <Option value="2016">2016</Option>

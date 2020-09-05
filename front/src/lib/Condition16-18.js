@@ -39,6 +39,10 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
       과학: 0,
       수학: 0,
       과학조건: 0,
+      rest: {
+        essential: [],
+        option: [],
+      },
     },
   };
 
@@ -197,19 +201,19 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
   }
 
   const science = {
-    '대학물리(1)': false,
-    '대학물리실험(1)': false,
-    '대학화학(1)': false,
-    '대학화학실험(1)': false,
-    '대학물리(2)': false,
-    '대학물리실험(2)': false,
-    '대학화학(2)': false,
-    '대학화학실험(2)': false,
+    '대학물리(1)': 3,
+    '대학물리실험(1)': 1,
+    '대학화학(1)': 3,
+    '대학화학실험(1)': 1,
+    '대학물리(2)': 3,
+    '대학물리실험(2)': 1,
+    '대학화학(2)': 3,
+    '대학화학실험(2)': 1,
   };
 
   myHistory.map((x) => {
     if (Object.prototype.hasOwnProperty.call(science, x.subject)) {
-      science[x.subject] = true;
+      science[x.subject] = 0;
     }
     // if (science.hasOwnProperty(x.subject)) {
     //   science[x.subject] = true;
@@ -217,17 +221,33 @@ module.exports = function condition1618(myHistory, myGraduateInfo) {
   });
 
   if (
-    science['대학물리(1)'] &&
-    science['대학물리실험(1)'] &&
-    science['대학화학(1)'] &&
-    science['대학화학실험(1)'] &&
-    ((science['대학물리(2)'] && science['대학물리실험(2)']) ||
-      (science['대학화학(2)'] && science['대학화학실험(2)']))
+    science['대학물리(1)'] === 0 &&
+    science['대학물리실험(1)'] === 0 &&
+    science['대학화학(1)'] === 0 &&
+    science['대학화학실험(1)'] === 0 &&
+    ((science['대학물리(2)'] === 0 && science['대학물리실험(2)'] === 0) ||
+      (science['대학화학(2)'] === 0 && science['대학화학실험(2)'] === 0))
   ) {
     state['MSC']['과학조건'] = 0;
   } else {
-    state['MSC']['과학조건'] = -1;
+    state['MSC']['과학조건'] = 1;
   }
+  if (science['대학물리(1)'] !== 0)
+    state['MSC']['rest']['essential'].push('대학물리(1)');
+  if (science['대학물리실험(1)'] !== 0)
+    state['MSC']['rest']['essential'].push('대학물리실험(1)');
+  if (science['대학화학(1)'] !== 0)
+    state['MSC']['rest']['essential'].push('대학화학(1)');
+  if (science['대학화학실험(1)'] !== 0)
+    state['MSC']['rest']['essential'].push('대학화학실험(1)');
+  if (science['대학물리(2)'] !== 0)
+    state['MSC']['rest']['option'].push('대학물리(2)');
+  if (science['대학물리실험(2)'] !== 0)
+    state['MSC']['rest']['option'].push('대학물리실험(2)');
+  if (science['대학화학(2)'] !== 0)
+    state['MSC']['rest']['option'].push('대학화학(2)');
+  if (science['대학화학실험(2)'] !== 0)
+    state['MSC']['rest']['option'].push('대학화학실험(2)');
   return state;
 };
 

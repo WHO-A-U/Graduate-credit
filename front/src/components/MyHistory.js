@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Table, Tag } from 'antd';
 import PropTypes from 'prop-types';
 const columns = [
   {
@@ -27,6 +27,27 @@ const columns = [
     title: '학점',
     dataIndex: 'grade',
     key: 'grade',
+    render: (text) => {
+      if (text === 'A+') {
+        return <Tag color="purple">A+</Tag>;
+      } else if (text === 'A0') {
+        return <Tag color="geekblue">A</Tag>;
+      } else if (text === 'B+') {
+        return <Tag color="green">B+</Tag>;
+      } else if (text === 'B0') {
+        return <Tag color="lime">B</Tag>;
+      } else if (text === 'C+') {
+        return <Tag color="orange">C+</Tag>;
+      } else if (text === 'C0') {
+        return <Tag color="volcano">C</Tag>;
+      } else if (text === 'D+') {
+        return <Tag color="red">D+</Tag>;
+      } else if (text === 'D0') {
+        return <Tag color="magenta">D</Tag>;
+      } else if (text === 'P') {
+        return <Tag color="default">P</Tag>;
+      }
+    },
   },
 ];
 
