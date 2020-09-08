@@ -16,10 +16,10 @@ const InfoTabs = ({
     <>
       <Tabs defaultActiveKey="1" onChange={setCurInfofn()}>
         <TabPane tab="컴퓨터공학과 공지" key="1">
-          <InfoContent Contentlist={covidContentList}></InfoContent>
+          <InfoContent Contentlist={computerContentList}></InfoContent>
         </TabPane>
         <TabPane tab="코로나 공지" key="2">
-          <InfoContent Contentlist={computerContentList}></InfoContent>
+          <InfoContent Contentlist={covidContentList}></InfoContent>
         </TabPane>
         <TabPane tab="학생 공지" key="3">
           <InfoContent Contentlist={studentContentList}></InfoContent>
