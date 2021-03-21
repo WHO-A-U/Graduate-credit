@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/WHO-A-U/Graduate-credit#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcrypt": ">=5.0.0",
     "cheerio": "^1.0.0-rc.3",
     "cookie-parser": "^1.4.5",
