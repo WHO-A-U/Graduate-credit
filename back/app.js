@@ -11,21 +11,21 @@ const myHistoryRouter = require('./routes/myHistory');
 const { initTable } = require('./routes/initInfo.test');
 const helmet = require('helmet');
 const http = require('http');
-dotenv.config(); //dotenv 파일 분석기
+dotenv.config();
 const app = express();
-db.sequelize.sync(); //db와 연결된 sequelize 테이블 구조동기화
+db.sequelize.sync();
 
-app.use(morgan('dev')); //이 서버로 오는 요청 req 의 로그를 찍어줌
+app.use(morgan('dev'));
 app.use(helmet());
 app.disable('x-powered-by');
-app.use(express.urlencoded({ extended: true })); //http req 헤더 json 형식으로 parsing 해줌
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   expressSession({
     resave: false,
     saveUninitialized: false,
-    secret: process.env.COOKIE_SECRET, //jwt와 session을 동시에 사용하기 위한 옵션 설정 value는 임의문자열
+    secret: process.env.COOKIE_SECRET,
     cookie: {
       httpOnly: true,
       secure: false,
@@ -45,9 +45,7 @@ app.use(
     origin: true,
     credentials: true,
   })
-); //front 와 back 이 도메인이 다르기떄문에 생기는 문제 해결
-//http 프로토콜은 브라우저를 거쳐야되는데 서버끼리 통신할떄는 필요함
-
+);
 app.get('/', (req, res) => {
   res.send('success Test');
 });
@@ -63,5 +61,3 @@ app.use((req, res, next) => {
 app.listen(3065, () => {
   console.log('3065 포트로 돌아가는중');
 });
-// http.createServer(app).listen(80);
-// http 로 서버 이용시

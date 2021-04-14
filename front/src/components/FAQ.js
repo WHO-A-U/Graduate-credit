@@ -3,7 +3,7 @@ import React from 'react';
 const FAQ = () => {
   return (
     <iframe
-      // src="https://docs.google.com/forms/d/e/해쉬값/viewform?embedded=true"
+      // src="https://docs.google.com/forms/d/e/해시값/viewform?embedded=true"
       title="survey"
       width="640"
       height="1202"

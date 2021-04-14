@@ -23,9 +23,6 @@ const data = [
 ];
 
 const GraduateTable = () => {
-  return (
-    <Table tableLayout="fixed" columns={columns} dataSource={data} />
-    // <Table tableLayout="fixed" columns={columns2} dataSource={data2} />
-  );
+  return <Table tableLayout="fixed" columns={columns} dataSource={data} />;
 };
 export default GraduateTable;
