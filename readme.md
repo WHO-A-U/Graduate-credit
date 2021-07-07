@@ -7,6 +7,7 @@
 ## 1. 교내 웹사이트에 흩어져있는 여러 분류의 공지를 한번에!
 
 ![image](https://user-images.githubusercontent.com/22141521/92309072-36894c80-efdd-11ea-985f-b8907d7b6ff0.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FWHO-A-U%2FGraduate-credit.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FWHO-A-U%2FGraduate-credit?ref=badge_shield)
 
 ## 2. 학교계정을 이용하여 손쉽게 졸업여건 판단 `+` 내 과목별 성적 확인가능! 👍
 
@@ -55,3 +56,7 @@ https://canigraduate.cf
 #### Front
 
 `React-Create-App`, `javascript`
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FWHO-A-U%2FGraduate-credit.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FWHO-A-U%2FGraduate-credit?ref=badge_large)
